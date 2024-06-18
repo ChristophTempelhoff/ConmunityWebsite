@@ -4,3 +4,15 @@
     color: rgb( 82, 100 ,203);
 }
 
+a:hover {
+    color: rgb( 82, 100 ,203);
+  }
+  .navbar-collapse.collapse.in { 
+    display: block!important;
+}
+.collapsing {
+    overflow: hidden!important;
+}
+
+ 
+.navbar-collapse { max-height: 100% !important; }
