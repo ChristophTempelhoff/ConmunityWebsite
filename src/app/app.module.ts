@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { NewsComponent } from './news/news.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ImpressumComponent,
+    DatenschutzComponent
   ],
   imports: [
     BrowserModule,

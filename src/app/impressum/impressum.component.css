@@ -1,0 +1,17 @@
+
+.shit{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 80%);
+    
+}
+
+.linkclass{
+    text-decoration: none;
+    color: white;
+    background-color: dark;
+    
+}
+
+a:hover {
+    color: rgb( 82, 100 ,203);
+  }
