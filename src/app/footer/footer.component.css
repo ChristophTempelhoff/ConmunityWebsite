@@ -2,4 +2,8 @@
     text-decoration: none;
     color: white;
     background-color: dark;
+    
 }
+a:hover {
+    color: rgb( 82, 100 ,203);
+  }
