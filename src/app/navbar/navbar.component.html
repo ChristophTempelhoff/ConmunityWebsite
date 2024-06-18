@@ -1,124 +1,103 @@
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand col-md-4" routerLink="">
+    <a class="navbar-brand col-6-xxl-1 px-3 " routerLink="">
       <img
-        src="../../assets/images/Conmmunitylogo.ico"
+        src="../../assets/images/Logo und Schrift.png"
         height="50"
         width="auto"
       />
-      <span><img
-        src="../../assets/images/CONmunityschrift.png"
-        height="50"
-        width="auto"
-      /></span>
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarCollapse"
-      aria-controls="navbarCollapse"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <!--
-            ##########################################################
-                                     Pages
-            ##########################################################
-      -->
-      <div class="container-fluid col-md-8">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/news"
-              >Neuigkeiten</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/events"
-              >Verantstaltungen</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/join"
-              >Mitwirken</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/aboutUs"
-              >Über uns</a
-            >
-          </li>
-        </ul>
-      </div>
-
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/news">
+            News
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
       <!--
             ##########################################################
                                 Social Media
             ##########################################################
           -->
-      <div class="container-fluid col-md-4">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <!--Twitter (currently no link)-->
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://www.twitter.com"
-            >
-              <i class="bi bi-twitter" style="font-size: 25px"></i>
-            </a>
-          </li>
-          <!--Instagram-->
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://www.instagram.com/conmunity_at/?igshid=NTc4MTIwNjQ2YQ%3D%3D"
-            >
-              <i class="bi bi-instagram" style="font-size: 25px"></i>
-            </a>
-          </li>
-          <!--Facebook (currently no link)-->
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://www.facebook.com"
-            >
-              <i class="bi bi-facebook" style="font-size: 25px"></i>
-            </a>
-          </li>
-          <!--YouTube (currently no link)-->
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://www.youtube.com"
-            >
-              <i class="bi bi-youtube" style="font-size: 25px"></i>
-            </a>
-          </li>
-          <!--Discord-->
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              href="https://discord.gg/Xqu77sfRkw"
-            >
-              <i class="bi bi-discord" style="font-size: 25px"></i>
-            </a>
-          </li>
-          <!--Search (I still have no idea on how I'm going to do this shit but that's a me problem I guess)-->
-          <li class="nav-item">
-            <button>
-              <i class="bi bi-search" style="font-size: 25px"></i>
-            </button>
-          </li>
-        </ul>
-      </div>
+          <div class="d-flex">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <!--LinkTree -->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="https://linktr.ee/conmunity"
+                  >
+                 <i class="bi bi-link-45deg" style="font-size: 25px"></i>
+               
+                </a>
+              </li>
+              <!--Instagram-->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="https://www.instagram.com/conmunity_at/?igshid=NTc4MTIwNjQ2YQ%3D%3D"
+                >
+                  <i class="bi bi-instagram" style="font-size: 25px"></i>
+                </a>
+              </li>
+              <!--TikTok-->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="https://www.tiktok.com/@conmunity_at?_t=8nHJRx79Een&_r=1"
+                >
+                  <i class="bi bi-tiktok" style="font-size: 25px"></i>
+                </a>
+              </li>
+              <!--YouTube -->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="https://www.youtube.com/@CONmunity"
+                >
+                  <i class="bi bi-youtube" style="font-size: 25px"></i>
+                </a>
+              </li>
+              <!--Discord-->
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="https://discord.gg/TVxZFaA3DB"
+                >
+                  <i class="bi bi-discord" style="font-size: 25px"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
     </div>
   </div>
 </nav>
+
+
