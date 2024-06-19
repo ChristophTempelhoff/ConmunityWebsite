@@ -1,0 +1,13 @@
+.shit{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 80%);
+}
+
+.cardundertitel{
+    text-align: center;
+    font-weight: bold;
+}
+
+.cardtextstyle {
+	text-align: justify
+}
