@@ -28,6 +28,11 @@ const routes: Routes = [
   {
     path: 'partner',
     component: PartnerComponent
+  },
+  {
+    path: '',
+    redirectTo: '/news',
+    pathMatch: 'full'
   }
 ];
 
