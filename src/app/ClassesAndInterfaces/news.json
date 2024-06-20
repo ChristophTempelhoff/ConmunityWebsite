@@ -1,0 +1,34 @@
+{
+    "items":
+    [
+        {
+            "id": 1,
+            "title": "Arbeit an Website wieder aufgenommen!",
+            "desc": "Wir haben die Arbeit an unserer Website wieder aufgenommen. Ihr könnt euch also auf viele tolle Neuerungen freuen, wie ein verbessertes Aussehen, oder erweiterte Funktionalität. Ihr habt Wünsche, Fragen oder Anregungen zur Website? Schickt Sie uns an it@conmunity.at!",
+            "date": "2024-06-10",
+            "url": "website.ico"            
+        },
+        {
+            "id":2,
+            "title":"Wir sind auf dem A1Esports-Festival!!",
+            "desc":"Ihr findet uns gemeinsam mit CGNexus auf dem A1Esports-Festival !!! Schaut gerne vorbei! CGNexus_ ist ein cooles Projekt, dass sich für alle einsetzt, die als Cosplayer und Gamer in der Szene unterwegs sind! Die Aufgabe? Cosplay und E-Sports mit einander vernetzen und einen geselligen Raum für jedermann schaffen! Ihr könnt euch gerne auch wieder ein paar tolle CONmunity-Sticker mitnehmen oder auch einfach mit uns quatschen! Wir freuen uns auf euch! MEHR INFOS findest du auf unserem Discord-Server. We‘re one huge CONmunity!",
+            "date": "2024-06-10",
+            "url": "A1Esports.png"
+        },
+        {
+            "id": 3,
+            "title":"Unser Creative Day",
+            "desc":"Kennst du schon unseren CREATIVE DAY? Ungefähr 2-3 mal im Monat setzen wir uns gemeinsam in unseren Discord-Voicechat zusammen und sind gemeinsam produktiv! Ganz egal ob genäht, gemalt oder programmiert wird, jeder ist herzlich eingeladen mitzumachen! Natürlich kannst du auch mitmachen, wenn du nur das Bedürfnis hast, ein bisschen zu quatschten! Wir freuen uns auf dich! MEHR INFOS findest du auf unserem Discord-Server. We‘re one huge CONmunity!",
+            "date": "2024-06-09",
+            "url": "creative.png"
+        },
+        {
+            "id": 4,
+            "title":"1. Geburtstag der CONmunity!",
+            "desc":"Wir haben GEBURTSTAG und IHR bekommt was vom Kuchen ab!» Ab heute steht EUCH unsere offizielle Eventübersicht zur Verfügung! Wir bemühen uns darum, diese Liste WÖCHENTLICH zu aktualisieren, um euch immer auf den neusten Stand zu halten! Ihr könnt somit auf „Eventkalender“ stöbern, wann und wo denn die nächsten Conventions oder Spieleabende stattfinden. In der allgemeinen Übersicht könnt ihr alle Veranstalter und Akteure in der Popkultur-Szene recherchieren! Der Link dazu findet ihr natürlich im Linktree! HINWEIS: Ab 01.01.2025 steht diese Übersicht nur unseren Vereinsmitgliedern und Kooperationspartnern zur Verfügung! MEHR INFOS findest du auf unserem Discord-Server. We‘re one huge CONmunity!",
+            "date": "2024-06-06",
+            "url": "birthday.png"
+
+        }
+    ]
+}

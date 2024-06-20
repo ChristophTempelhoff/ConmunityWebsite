@@ -1,7 +1,7 @@
 export interface NewInterface{
     id: Number;
     title: String;
-    descShort: String;
-    descLong: String;
+    desc: String;
     date: Date;
+    url: String;
 }
