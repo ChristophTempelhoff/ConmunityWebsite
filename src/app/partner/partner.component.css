@@ -1,0 +1,21 @@
+.shit{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 80%);
+}
+
+.cardundertitel{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cardtextstyle {
+    text-decoration: none;
+}
+
+.linkclass{
+    text-decoration: none;
+    color: white;
+    background-color: dark;
+    
+}
