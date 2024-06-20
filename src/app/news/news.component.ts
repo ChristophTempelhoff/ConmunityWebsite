@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from "../services/news.service";
 import { NewInterface } from "../ClassesAndInterfaces/New";
 
 declare var require: any
