@@ -18,13 +18,15 @@ export class NewsComponent {
   }
 
   async initializeNews() {
+    // Please be nice to me, I'm proud of that. 
+    this.news = this.getNewsFromJSON();
     this.news = await this.getNews();
   }
 
   async getNews(): Promise<NewInterface[]> {
     var ns: NewsService = new NewsService();
-    const records: RecordModel[] = await ns.GetNews();
-    // Assuming you need to map RecordModel to NewInterface
+    const records: RecordModel[] = await ns.GetNewsFromDB();
+    // Remapping the database request to NewInterface[]
     const news: NewInterface[] = records.map(record => ({
       id: record['id'],
       title: record['title'],
@@ -33,5 +35,10 @@ export class NewsComponent {
       url: record['img']
     }));
     return news;
+  }
+
+  getNewsFromJSON(): NewInterface[]{
+    var ns: NewsService = new NewsService();
+    return ns.getNewsFromJSON();
   }
 }
