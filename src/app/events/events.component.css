@@ -2,8 +2,36 @@
     text-decoration: none;
     color: white;
     background-color: dark;
-    
+}
+
+.quelle{
+    color: white;
+    margin-bottom: 100px;
 }
 a:hover {
     color: rgb( 82, 100 ,203);
   }
+
+.blabla{
+    width: 67vw; /* It should not be 100% */
+    height: 200vh;
+ 
+}
+
+.wrapper{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+@media (max-width: 1000px) {
+    .blabla{
+        width: 90vw; /* It should not be 100% */
+        height: 200vh;
+    
+    
+    }
+    
+    
+}
