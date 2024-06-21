@@ -1,5 +1,5 @@
 export interface NewInterface{
-    id: Number;
+    id: String;
     title: String;
     desc: String;
     date: Date;
