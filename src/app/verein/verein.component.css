@@ -1,0 +1,219 @@
+.media {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 100%;
+    display: flex; /* Make the media container a flex container */
+    flex-wrap: wrap; /* Allow the flex items to wrap */
+  }
+  
+  .media-body {
+    width: 50%; /* Take up 50% of the width */
+    order: 1; /* Set the order to 1, so it comes first */
+  }
+  
+  .media-object {
+    width: 50%; /* Take up 50% of the width */
+    height: 100%;
+    object-fit: cover;
+    order: 2; /* Set the order to 2, so it comes second */
+  }
+  .carousel-indicators{
+    opacity: 0%;
+  }
+
+  .schatten{
+    box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.3)
+  }
+
+.slide{
+    border-radius: 15px;
+}
+
+  @media (max-width: 1000px) {
+    
+    .carousel-indicators {
+        opacity: 100%;
+        border: none;
+        border-radius: 15px;
+        font-weight: 100;
+        background-color: transparent;
+        color: #b988ea;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        /*if its stupid and it works, its not stupid*/
+        margin-left: 40%;
+        margin-right: 40%;
+        position: absolute;
+        bottom: 0;
+       
+      }
+      
+      .carousel-indicators:hover {
+        color: black;
+        background-color: #b988ea;
+        box-shadow: 0 0 2em 0.5em #b988ea;
+      }
+      
+      .carousel-indicators:hover::before {
+        opacity: .7;
+      }
+    .media {
+
+        background-color: #f7f7f7;
+      
+        padding: 20px;
+      
+        border: 1px solid #ddd;
+      
+        border-radius: 10px;
+      
+        width: 100%;
+      
+        display: flex; /* Make the media container a flex container */
+      
+        flex-direction: column; /* Change the flex direction to column */
+      
+      }
+      
+      
+      .media-body {
+      
+        width: 100%; /* Take up full width */
+      
+      }
+      
+      
+      .media-object {
+      
+        width: 100%; /* Take up full width */
+      
+        flex-grow: 1; /* Take up the remaining height */
+      
+        object-fit: cover;
+      
+        margin: 20px auto; /* Add margin to center the image horizontally */
+      
+      }
+}
+
+
+  .goodshit{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 0.616);
+}
+
+p{
+    font-size: 1.2rem;
+    margin-right: 20px;
+}
+
+h2{
+    font-size: 2.4rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #b988ea;
+    letter-spacing: 1.5px;
+}
+
+.carousel-control-next-icon{
+    font-size: 1.5rem;
+    padding: 1em 1.2em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    background-color: transparent;
+    color: #b988ea;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    align-self: top;
+    position: absolute;
+  bottom: 0;
+}
+
+.carousel-control-next-icon::before {
+      content: '';
+      position: absolute;
+      background: #b988ea;
+      top: 300%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .2;
+      filter: blur(1em);
+      transform: perspective(1em) rotateX(40deg) scale(1,0.35);
+      transition: all .3s ease-in-out;
+    }    
+
+.carousel-control-next-icon:hover{
+    color: black;
+    background-color: #b988ea;
+    box-shadow: 0 0 2em 0.5em #b988ea;
+}
+
+.carousel-control-next-icon:hover::before{
+    opacity: .7;
+}
+
+
+
+.carousel-control-prev-icon{
+    font-size: 1.5rem;
+    padding: 1em 1.2em;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    background-color: transparent;
+    color: #b988ea;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    
+    position: absolute;
+  bottom: 0;
+}
+
+.carousel-control-prev-icon::before {
+      content: '';
+      position: absolute;
+      background: #b988ea;
+      top: 300%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .2;
+      filter: blur(1em);
+      transform: perspective(1em) rotateX(40deg) scale(1,0.35);
+      transition: all .3s ease-in-out;
+    }    
+
+.carousel-control-prev-icon:hover{
+    color: black;
+    background-color: #b988ea;
+    box-shadow: 0 0 2em 0.5em #b988ea;
+}
+
+.carousel-control-prev-icon:hover::before{
+    opacity: .7;
+}
+
+
+
+/*
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  }
+
+  .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+   }
+
+   .carousel-control-next-icon:hover {
+    color: black;
+    background-color: rgb(203, 90, 82);
+    filter: box-shadow(1px 1px 30px rgb(203, 90, 82));
+  }
+    */

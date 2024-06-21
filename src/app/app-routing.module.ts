@@ -10,6 +10,7 @@ import { PartnerComponent } from './partner/partner.component';
 import { EventsComponent } from './events/events.component';
 import { VereinComponent } from './verein/verein.component';
 import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
+import { ZieleComponent } from './ziele/ziele.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'taetigkeitsbereiche',
     component: TaetigkeitsbereicheComponent
+  },
+  {
+    path: 'ziele',
+    component: ZieleComponent
   }
 ];
 

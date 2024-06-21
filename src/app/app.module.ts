@@ -13,6 +13,7 @@ import { PartnerComponent } from './partner/partner.component';
 import { EventsComponent } from './events/events.component';
 import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
 import { VereinComponent } from './verein/verein.component';
+import { ZieleComponent } from './ziele/ziele.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VereinComponent } from './verein/verein.component';
     PartnerComponent,
     EventsComponent,
     TaetigkeitsbereicheComponent,
-    VereinComponent
+    VereinComponent,
+    ZieleComponent
   ],
   imports: [
     BrowserModule,
