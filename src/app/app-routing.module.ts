@@ -8,6 +8,8 @@ import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PartnerComponent } from './partner/partner.component';
 import { EventsComponent } from './events/events.component';
+import { VereinComponent } from './verein/verein.component';
+import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,14 @@ const routes: Routes = [
     path: '',
     redirectTo: '/news',
     pathMatch: 'full'
+  },
+  {
+    path: 'verein',
+    component: VereinComponent
+  },
+  {
+    path: 'taetigkeitsbereiche',
+    component: TaetigkeitsbereicheComponent
   }
 ];
 

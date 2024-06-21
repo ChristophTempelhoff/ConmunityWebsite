@@ -11,6 +11,8 @@ import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PartnerComponent } from './partner/partner.component';
 import { EventsComponent } from './events/events.component';
+import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
+import { VereinComponent } from './verein/verein.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { EventsComponent } from './events/events.component';
     DatenschutzComponent,
     AboutUsComponent,
     PartnerComponent,
-    EventsComponent
+    EventsComponent,
+    TaetigkeitsbereicheComponent,
+    VereinComponent
   ],
   imports: [
     BrowserModule,
