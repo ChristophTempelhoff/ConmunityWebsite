@@ -8,3 +8,10 @@
 a:hover {
     color: rgb( 82, 100 ,203);
   }
+
+  .liste {
+    text-align: center;
+  }
+  .liste > ul {
+    display: inline-block;
+  }
