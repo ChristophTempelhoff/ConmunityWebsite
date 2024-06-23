@@ -4,9 +4,24 @@
 }
 
 .goodshit{
-    color: white;
+    color: rgb(0, 0, 0);
     background-color: hsla(210, 11%, 15%, 0.616);
 }
+
+.schatten{
+box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.3)
+}
+
+.media {
+    background-color: hsla(210, 11%, 15%, 0.616);
+    color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px 50px;
+    width: 100%;
+    display: flex; /* Make the media container a flex container */
+    flex-wrap: wrap; /* Allow the flex items to wrap */
+  }
 
 .cardundertitel {
     text-align: center;
@@ -23,12 +38,7 @@
     right: 30px;
 }
 
-h2 {
-    margin: 5%;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 100;
-}
+
 
 .timeline {
     display: flex;
@@ -83,7 +93,7 @@ h2 {
     right: auto;
     z-index: 5;
     transform: translateX(-50%);
-    animation: fillTop 2s forwards 4s ease-in-out;
+    animation: fillTop 2s forwards 1s ease-in-out;
 }
 
 .timeline__event:nth-child(2n + 1) .timeline__event__icon:after {/*PMK. TUD und WST Waagrecht*/
@@ -97,7 +107,7 @@ h2 {
     top: 50%;
     left: auto;
     transform: translateY(-50%);
-    animation: fillLeft 2s forwards 4s ease-in-out;
+    animation: fillLeft 2s forwards 1s ease-in-out;
 }
 
 .timeline__event__title {
@@ -151,7 +161,7 @@ h2 {
     z-index: 2;
     left: 50%;
     transform: translateX(-50%);
-    animation: fillTop 2s forwards 4s ease-in-out;
+    animation: fillTop 2s forwards 1s ease-in-out;
 }
 
 .timeline__event__icon:after { /* SUS + MB waagerecht DAVOR*/
@@ -164,7 +174,7 @@ h2 {
     z-index: 2;
     top: 50%;
     transform: translateY(-50%);
-    animation: fillLeftOdd 2s forwards 4s ease-in-out;
+    animation: fillLeftOdd 2s forwards  1s ease-in-out;
 }
 
 .timeline__event__description {
@@ -314,3 +324,28 @@ h2 {
         left: 100%;
     }
 }
+
+
+
+.timeline {
+    animation: fadeInFromBottom 1s forwards;
+    animation-delay: 0.5s; /* adjust the delay to your liking */
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes fadeInFromBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

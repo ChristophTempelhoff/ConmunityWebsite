@@ -3,3 +3,14 @@
     color: white;
     background-color: hsla(210, 11%, 15%, 80%);
 }
+
+@font-face {
+    font-family: 'Questrial-Regular';
+    src: url('src\assets\fonts\Questrial-Regular.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font-family: "Questrial-Regular";
+}
