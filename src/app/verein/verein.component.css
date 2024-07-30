@@ -31,71 +31,71 @@
     border-radius: 15px;
 }
 
-  @media (max-width: 1000px) {
-    
-    .carousel-indicators {
-        opacity: 100%;
-        border: none;
-        border-radius: 15px;
-        font-weight: 100;
-        background-color: transparent;
-        color: #b988ea;
-        cursor: pointer;
-        transition: all .3s ease-in-out;
-        /*if its stupid and it works, its not stupid*/
-        margin-left: 40%;
-        margin-right: 40%;
-        position: absolute;
-        bottom: 0;
-       
-      }
-      
-      .carousel-indicators:hover {
-        color: black;
-        background-color: #b988ea;
-        box-shadow: 0 0 2em 0.5em #b988ea;
-      }
-      
-      .carousel-indicators:hover::before {
-        opacity: .7;
-      }
-    .media {
+@media (max-width: 600px) {
 
-        background-color: #f7f7f7;
-      
-        padding: 20px;
-      
-        border: 1px solid #ddd;
-      
-        border-radius: 10px;
-      
-        width: 100%;
-      
-        display: flex; /* Make the media container a flex container */
-      
-        flex-direction: column; /* Change the flex direction to column */
-      
-      }
-      
-      
-      .media-body {
-      
-        width: 100%; /* Take up full width */
-      
-      }
-      
-      
-      .media-object {
-      
-        width: 100%; /* Take up full width */
-      
-        flex-grow: 1; /* Take up the remaining height */
-      
-        object-fit: cover;
-      
-        margin: 20px auto; /* Add margin to center the image horizontally */
-      
-      }
+  .carousel-indicators {
+      opacity: 100%;
+      border: none;
+      border-radius: 15px;
+      font-weight: 100;
+      background-color: transparent;
+      color: #b988ea;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      /*if its stupid and it works, its not stupid*/
+      margin-left: 40%;
+      margin-right: 40%;
+      position: absolute;
+      bottom: 0;
+
+    }
+
+    .carousel-indicators:hover {
+      color: black;
+      background-color: #b988ea;
+      box-shadow: 0 0 2em 0.5em #b988ea;
+    }
+
+    .carousel-indicators:hover::before {
+      opacity: .7;
+    }
+  .media {
+
+      background-color: #f7f7f7;
+
+      padding: 20px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 10px;
+
+      width: 100%;
+
+      display: flex; /* Make the media container a flex container */
+
+      flex-direction: column; /* Change the flex direction to column */
+
+    }
+
+
+    .media-body {
+
+      width: 100%; /* Take up full width */
+
+    }
+
+
+    .media-object {
+
+      width: 100%; /* Take up full width */
+
+      flex-grow: 1; /* Take up the remaining height */
+
+      object-fit: cover;
+
+      margin: 20px auto; /* Add margin to center the image horizontally */
+
+    }
 }
 
 
