@@ -11,8 +11,14 @@ import { EventsComponent } from './events/events.component';
 import { VereinComponent } from './verein/verein.component';
 import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
 import { ZieleComponent } from './ziele/ziele.component';
+import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/news',
+    pathMatch: 'full'
+  },
   {
     path: 'news',
     component: NewsComponent
@@ -38,11 +44,6 @@ const routes: Routes = [
     component: EventsComponent
   },
   {
-    path: '',
-    redirectTo: '/news',
-    pathMatch: 'full'
-  },
-  {
     path: 'verein',
     component: VereinComponent
   },
@@ -53,7 +54,17 @@ const routes: Routes = [
   {
     path: 'ziele',
     component: ZieleComponent
-  }
+  },
+  {
+    path: 'download',
+    component: DownloadComponent
+  },
+
+  //Must be last all the time!!!!
+  {
+    path: '**',
+    redirectTo: '/news'
+  },
 ];
 
 @NgModule({

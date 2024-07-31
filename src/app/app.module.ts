@@ -14,6 +14,7 @@ import { EventsComponent } from './events/events.component';
 import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
 import { VereinComponent } from './verein/verein.component';
 import { ZieleComponent } from './ziele/ziele.component';
+import { DownloadComponent } from './download/download.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ZieleComponent } from './ziele/ziele.component';
     EventsComponent,
     TaetigkeitsbereicheComponent,
     VereinComponent,
-    ZieleComponent
+    ZieleComponent,
+    DownloadComponent
   ],
   imports: [
     BrowserModule,
