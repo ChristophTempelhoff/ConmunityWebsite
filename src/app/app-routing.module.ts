@@ -12,6 +12,7 @@ import { VereinComponent } from './verein/verein.component';
 import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsbereiche.component';
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
+import { VorteileComponent } from './vorteile/vorteile.component';
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path: 'download',
     component: DownloadComponent
+  },
+  {
+    path: 'vorteile',
+    component: VorteileComponent
   },
 
   //Must be last all the time!!!!
