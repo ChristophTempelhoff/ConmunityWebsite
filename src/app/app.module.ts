@@ -15,7 +15,7 @@ import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsb
 import { VereinComponent } from './verein/verein.component';
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
-import { VorteileComponent } from './vorteile/vorteile.component';
+import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { VorteileComponent } from './vorteile/vorteile.component';
     VereinComponent,
     ZieleComponent,
     DownloadComponent,
-    VorteileComponent
+    MitgliedsschaftComponent,
   ],
   imports: [
     BrowserModule,
