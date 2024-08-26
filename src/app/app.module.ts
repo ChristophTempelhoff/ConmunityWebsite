@@ -15,6 +15,7 @@ import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsb
 import { VereinComponent } from './verein/verein.component';
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
+import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DownloadComponent } from './download/download.component';
     TaetigkeitsbereicheComponent,
     VereinComponent,
     ZieleComponent,
-    DownloadComponent
+    DownloadComponent,
+    MitgliedsschaftComponent,
   ],
   imports: [
     BrowserModule,
