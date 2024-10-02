@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NewInterface } from "../ClassesAndInterfaces/New";
+import { NewInterface, News } from "../ClassesAndInterfaces/New";
 import { NewsService } from '../services/news.service';
-import { RecordModel } from 'pocketbase';
+import PocketBase, {RecordModel} from 'pocketbase';
 
 declare var require: any
+const pb = new PocketBase('http://127.0.0.1:8090');
+
 
 @Component({
   selector: 'app-news',
@@ -12,6 +14,7 @@ declare var require: any
 })
 export class NewsComponent {
   news: NewInterface[] = [];
+  urls: String[] = [];
 
   constructor() {
     this.initializeNews();
@@ -21,18 +24,19 @@ export class NewsComponent {
     // Please be nice to me, I'm proud of that. 
     this.news = this.getNewsFromJSON();
     this.news = await this.getNews();
+    this.urls.push()
   }
 
   async getNews(): Promise<NewInterface[]> {
     var ns: NewsService = new NewsService();
-    const records: RecordModel[] = await ns.GetNewsFromDB();
+    const records: News[] = await ns.GetNewsFromDB();
     // Remapping the database request to NewInterface[]
     const news: NewInterface[] = records.map(record => ({
-      id: record['id'],
-      title: record['title'],
-      desc: record['desc'],
-      date: new Date(record['created']),
-      url: record['img']
+      id: record.model['id'],
+      title: record.model['title'],
+      desc: record.model['desc'],
+      date: new Date(record.model['created']),
+      url: record.url
     }));
     return news;
   }
