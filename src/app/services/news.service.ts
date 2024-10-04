@@ -12,7 +12,7 @@ export class NewsService {
   constructor() { }
 
   async GetNewsFromDB(): Promise<News[]>{
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase('http://152.89.239.148:8090');
     var news: News[] = [];
     
     const records = await pb.collection('News').getFullList({
