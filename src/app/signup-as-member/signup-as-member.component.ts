@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./signup-as-member.component.css']
 })
 export class SignupAsMemberComponent {
-  memberType: String = "temporäre Mitgliedschaft"
+  memberType: String | null = "temporäre Mitgliedschaft"
 officialFirstname: String = "";
 preferedFirstname: String = "";
 lastname: String = "";
@@ -23,6 +24,15 @@ city: String = "";
 tel: String = "";
 email: String = "";
 newsletter: Boolean = true;
+
+constructor(route: ActivatedRoute){
+  this.memberType = route.snapshot.queryParamMap.get('memberType');
+  if(this.memberType === "aom"){
+    this.memberType = "außerordentliche Mitgliedschaft";
+  } else{
+    this.memberType = "ordentliche Mitgliedschaft";
+  }
+}
 
 
 public safeDOB(){
