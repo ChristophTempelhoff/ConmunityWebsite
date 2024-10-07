@@ -12,7 +12,7 @@ export class NewsService {
   constructor() { }
 
   async GetNewsFromDB(): Promise<News[]>{
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase('https://backend.conmunity.at');
     var news: News[] = [];
     
     const records = await pb.collection('News').getFullList({
@@ -22,8 +22,6 @@ export class NewsService {
       var singleNews: News = {model: records[i], url: pb.files.getUrl(records[i], records[i]['img'])};
       news.push(singleNews);
     }
-    
-    console.log(news);
     return news;
   }
 
