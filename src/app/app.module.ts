@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +18,7 @@ import { VereinComponent } from './verein/verein.component';
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
 import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
+import { SignupAsMemberComponent } from './signup-as-member/signup-as-member.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +36,13 @@ import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.comp
     ZieleComponent,
     DownloadComponent,
     MitgliedsschaftComponent,
+    SignupAsMemberComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

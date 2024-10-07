@@ -1,0 +1,128 @@
+<div class="shit pt-5 h-100 p-5 rounded-3">
+  <div class="text-light text-center">
+    <h1>Werde Mitglied!</h1>
+  </div>
+</div>
+<br /><br />
+<div class="container shit">
+  <h4 class="text-center">Persönliche Daten</h4>
+
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Offizieller Vorname</span>
+        <input type="text" class="form-control" [(ngModel)]="officialFirstname" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Bevorzugter Vorname</span>
+        <input type="text" class="form-control" [(ngModel)]="preferedFirstname" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Nachname</span>
+        <input type="text" class="form-control" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Geburtsdatum</span>
+        <input type="date" (change)="safeDOB()" class="form-control">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Geschlecht</span>
+        <select class="form-select" [(ngModel)]="sex" [ngModelOptions]="{standalone: true}">
+          <option value="0">-- Bitte auswählen --</option>
+          <option value="1">Männlich</option>
+          <option value="2">Weiblich</option>
+          <option value="3">Divers</option>
+        </select>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row">
+    <h6>Für Minderjährige (Erziehungsberechtigten angeben)</h6>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Vornahme</span>
+        <input class="form-control" type="text" [(ngModel)]="firstnameParent" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Nachname</span>
+        <input class="form-control" type="text" [(ngModel)]="lastnameParent" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <hr>
+
+  <h4 class="text-center">Kontaktmöglichkeiten</h4>
+
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Straße</span>
+        <input type="text" class="form-control" [(ngModel)]="adress" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">PLZ</span>
+        <input type="text" class="form-control" [(ngModel)]="plz" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Ort</span>
+        <input type="text" class="form-control" [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Tel.-Nr</span>
+        <input type="tel" [(ngModel)]="tel" [ngModelOptions]="{standalone: true}" class="form-control">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text">Email</span>
+        <input type="tel" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control">
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <label for="newsletter" class="form-control">Newsletter abonnieren?</label>
+        <div class="input-group-text" style="width: auto;">
+          <input type="checkbox" class="form-check-input mt-0" [(ngModel)]="newsletter"
+            [ngModelOptions]="{standalone: true}" id="newsletter">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row center">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+      <a class="linkclass" (click)="safeUser()" style="vertical-align:middle">
+        <button class="btn btn-lg btn-outline-primary" type="button">Einreichen</button>
+      </a>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+</div>
+<br /><br />

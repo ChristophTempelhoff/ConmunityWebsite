@@ -13,6 +13,7 @@ import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsb
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
 import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
+import { SignupAsMemberComponent } from './signup-as-member/signup-as-member.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,10 @@ const routes: Routes = [
   {
     path: 'mitgliedschaft',
     component: MitgliedsschaftComponent
+  },
+  {
+    path: 'join',
+    component: SignupAsMemberComponent
   },
 
   //Must be last all the time!!!!

@@ -1,0 +1,13 @@
+.row{
+    padding-top: 1%;
+}
+
+.col{
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.btn{
+    align-self: center;
+}
