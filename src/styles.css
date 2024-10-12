@@ -325,3 +325,10 @@ body{
       opacity: 1;
     }
   }
+
+
+  .linkclass{
+    text-decoration: none;
+    color: black;
+    background-color: dark;
+  }
