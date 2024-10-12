@@ -63,6 +63,7 @@ const routes: Routes = [
   //Must be last all the time!!!!
   {
     path: '**',
+    pathMatch: 'full',
     redirectTo: 'https://www.conmunity.at/news'
   },
 ];
