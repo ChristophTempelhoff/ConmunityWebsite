@@ -24,3 +24,7 @@ h2 {
     font-size: 2rem;
     font-weight: 100;
 }
+
+a:hover {
+    color: rgb( 82, 100 ,203);
+  }
