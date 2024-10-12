@@ -63,7 +63,7 @@ const routes: Routes = [
   //Must be last all the time!!!!
   {
     path: '**',
-    redirectTo: '/news'
+    redirectTo: 'https://www.conmunity.at/news'
   },
 ];
 
