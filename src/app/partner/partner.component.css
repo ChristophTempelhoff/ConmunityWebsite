@@ -4,6 +4,7 @@
     text-decoration: none;
 }
 
+
 .cardtextstyle {
     text-decoration: none;
 }
@@ -14,3 +15,36 @@
     background-color: dark;
     
 }
+.cardundertitel{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cardtextstyle {
+    text-decoration: none;
+}
+
+.linkclass{
+    text-decoration: none;
+    color: white;
+    background-color: dark;
+    
+}
+.goodshit{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 0.616);
+}
+
+
+  /*CONmunity*/
+
+  .us{
+    background-color: hsla(210, 11%, 15%, 0.616); /* initial background color */
+    text-align: center;
+    padding-top: 70px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.12);
+    margin-top: 5vh;
+  }
