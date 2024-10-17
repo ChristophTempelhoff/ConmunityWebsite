@@ -7,12 +7,15 @@
 .cardtextstyle {
     text-decoration: none;
 }
+.cardheader{
+    border-color: #b988ea;
+    color: #b988ea;
+}
 
 .linkclass{
     text-decoration: none;
     color: white;
     background-color: dark;
-    
 }
 
 .month{
@@ -27,6 +30,17 @@
     align-content: center;
 }
 
-.card{
-    height: 100%;
-}
+ .btn{
+    background-color: transparent;
+    color: #b988ea;
+    border-color: #b988ea;
+   
+    
+ }
+ .btn:hover{
+        color: white;
+    background:   #b988ea;;
+    cursor: pointer;
+    box-shadow: 0 0 0.75em 0.05em #b988ea;
+    text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
+ }
