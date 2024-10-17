@@ -4,8 +4,8 @@
   </div>
 </div>
 <br /><br />
-<div class="abstand d-flex">
-  <table class="table table-hover table-dark">
+<div class="goodshit abstand table-responsive d-flex">
+  <table class="table table-hover table-dark ">
     <thead>
       <tr>
         <th scope="col">Dokumenten-Name</th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let doc of Docs">
-          <td>{{doc.document_name}}</td>
+          <td class="align-items-center">{{doc.document_name}}</td>
           <td>{{doc.updated | date: "dd.MM.yyyy"}}</td>
           <td>
             <a
@@ -28,4 +28,6 @@
     </tbody>
   </table>
 </div>
+
+
 
