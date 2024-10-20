@@ -1,0 +1,50 @@
+.shit {
+    color: white;
+    background-color: hsla(210, 11%, 15%, 80%);
+}
+
+.cardundertitel {
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cardtextstyle {
+    text-align: left;
+}
+
+.card-body {
+
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: space-between; /* Space out children */
+    height: 100%; /* Allow it to take the full height of the card */
+}
+
+.cardfooter{
+    border-color: #b988ea;
+    color: #b988ea;
+}
+
+.cardheader{
+    border-color: #b988ea;
+    color: #b988ea;
+    margin-bottom: 10px;
+}
+
+
+.positionl {
+    offset: relative;
+    right: 30px;
+}
+
+.linkclass{
+    text-decoration: none;
+    color: white;
+    background-color: dark;
+    text-align: center;
+    
+}
+a:hover {
+    color: rgb( 82, 100 ,203);
+  }
