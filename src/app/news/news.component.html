@@ -4,19 +4,23 @@
   </div>
 </div>
   <br><br>
-<div>
-    <div class="list-group" *ngFor="let newsArticle of news">
-      <div class=" spacingfix list-group-item d-flex gap-3 py-3 border-0 shit">
-          <img src="{{newsArticle.url}}" style="width: 20%; height: 20%;">
-          <div class="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h5 class="mb-0">{{newsArticle.title}}</h5>
-              <p class="mb-0 opacity-75">Veröffentlicht: {{newsArticle.date | date: "dd.MM.yyyy"}}</p>
-              <br>
-              <small>{{newsArticle.desc}}</small>
-          </div>
-          </div>
+
+
+<div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
+  <div *ngFor="let news of News[row]" class="container col d-flex justify-content-center mr-auto p-2 card-deck">
+    <a *ngIf="news != undefined" href="{{news.url}}" class="linkclass">
+      <div class="card" style="width: 18rem; height: 100%" >
+        <img src="{{news.url}}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h4 class="card-title text-center">{{news.title}}</h4>
+          <p class="date">Veröffentlicht: {{news.date | date: "dd.MM.yyyy"}}</p>
+          <p class="card-text cardtextstyle">
+            {{news.desc}}
+          </p>
         </div>
-        </div>
+      </div>
+    </a>
+  </div>
 </div>
+
 <br><br>
