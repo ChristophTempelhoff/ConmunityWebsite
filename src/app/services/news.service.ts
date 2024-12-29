@@ -11,15 +11,21 @@ export class NewsService {
 
   constructor() { }
 
-  async GetNewsFromDB(): Promise<News[]>{
+  async GetNewsFromDB(): Promise<NewInterface[]>{
     const pb = new PocketBase('https://backend.conmunity.at');
-    var news: News[] = [];
+    var news: NewInterface[] = [];
     
     const records = await pb.collection('News').getFullList({
       sort: '-created',
     });
     for (let i = 0; i < records.length; i++) {
-      var singleNews: News = {model: records[i], url: pb.files.getUrl(records[i], records[i]['img'])};
+      var singleNews: NewInterface = {
+        id: records[i]['id'],
+        title: records[i]['title'],
+        desc: records[i]['desc'],
+        date: new Date(records[i]['created']),
+        url: pb.files.getUrl(records[i], records[i]['img'])
+      };
       news.push(singleNews);
     }
     return news;
