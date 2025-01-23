@@ -3,24 +3,35 @@
       <h1>Neuigkeiten</h1>
   </div>
 </div>
+
+<div *ngIf="isLoading" style="height: 120vh;">
+
+  <!-- You can show a loading spinner or message here -->
+
+</div>
   <br><br>
 
-
-<div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
-  <div *ngFor="let news of News[row]" class="container col d-flex justify-content-center mr-auto p-2 card-deck">
-    <a *ngIf="news != undefined" href="{{news.url}}" class="linkclass">
-      <div class="card" style="width: 18rem; height: 100%" >
-        <img src="{{news.url}}" class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h4 class="card-title text-center">{{news.title}}</h4>
-          <p class="date">Veröffentlicht: {{news.date | date: "dd.MM.yyyy"}}</p>
-          <p class="card-text cardtextstyle">
-            {{news.desc}}
-          </p>
-        </div>
+  <div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
+    <ng-container *ngFor="let news of News[row]">
+      <div  class="container col d-flex justify-content-center mr-auto card-deck">
+        <div *ngIf="news.id">
+          <a href="./news/{{news.id}}" class="linkclass">
+          <div class="card">
+            <img src="{{news.ImageUrl}}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <div class="titelspacing">
+                <h4 class="card-title text-center">{{news.title}}</h4>
+              </div>
+              <p class="date">Veröffentlicht: {{news.date | date: "dd.MM.yyyy"}}</p>
+              <p class="card-text cardtextstyle">
+                {{news.introduction}}
+               </p>
+              </div>
+            </div>
+          </a>
       </div>
-    </a>
+      </div>
+    </ng-container>
   </div>
-</div>
 
 <br><br>

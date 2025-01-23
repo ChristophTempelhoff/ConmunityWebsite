@@ -13,6 +13,7 @@ import { TaetigkeitsbereicheComponent } from './taetigkeitsbereiche/taetigkeitsb
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
 import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
+import { SingleNewsComponent } from './news/single-news/single-news.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'news',
     component: NewsComponent
+  },
+  {
+    path: 'news/:id',
+    component: SingleNewsComponent
   },
   {
     path: 'impressum',

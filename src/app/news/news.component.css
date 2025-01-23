@@ -1,12 +1,30 @@
+.card{
+  width: 23rem;
+  height: 100%;
+}
+.card-deck{
+  padding-bottom: 27px;
+}
+.card-title{
+  font-size: 30px;
+}
+
+.titelspacing{
+  height: 110px;
+  display: flex;
+  align-items: center;
+}
+
 .cardundertitel{
   text-align: center;
   font-weight: bold;
   text-decoration: none;
 }
 
-
 .cardtextstyle {
   text-decoration: none;
+  
+font-size: 18px;
 }
 
 .linkclass{
@@ -14,28 +32,13 @@
   color: white;
   background-color: dark;
   
-}
-.cardundertitel{
-  text-align: center;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.cardtextstyle {
-  text-decoration: none;
-}
-
-.linkclass{
-  text-decoration: none;
-  color: white;
-  background-color: dark;
-  
-}
-.goodshit{
-  color: white;
-  background-color: hsla(210, 11%, 15%, 0.616);
 }
 
 .date{
   opacity: 70%;
+  font-size: 20px;
+}
+
+.card-body{
+padding-bottom: 30px;
 }
