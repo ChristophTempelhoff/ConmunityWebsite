@@ -5,6 +5,12 @@
 </div>
 <br /><br />
 
+<div *ngIf="isLoading" style="height: 120vh;">
+
+  <!-- You can show a loading spinner or message here -->
+
+</div>
+
 <div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
   <div *ngFor="let partner of Partners[row]" class="container col d-flex justify-content-center mr-auto p-2 card-deck">
     <a *ngIf="partner != undefined" href="{{partner.PartnerURL}}" class="linkclass">

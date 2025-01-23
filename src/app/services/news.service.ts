@@ -1,40 +1,38 @@
-import { NewInterface, News } from './../ClassesAndInterfaces/New';
+import { News } from './../ClassesAndInterfaces/New';
 import { Injectable } from '@angular/core';
 import PocketBase, { RecordModel } from 'pocketbase';
-
-declare var require: any
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
+  protected pb = new PocketBase('https://backend.conmunity.at');
+
   constructor() { }
 
   async GetNewsFromDB(): Promise<News[]>{
-    const pb = new PocketBase('https://backend.conmunity.at');
     var news: News[] = [];
     
-    const records = await pb.collection('News').getFullList({
+    const records = await this.pb.collection('News').getFullList({
       sort: '-created',
     });
     for (let i = 0; i < records.length; i++) {
-      var singleNews: News = {model: records[i], url: pb.files.getUrl(records[i], records[i]['img'])};
+      var singleNews: News = {
+        id: records[i]['id'],
+        title: records[i]['title'],
+        desc: records[i]['desc'],
+        introduction: records[i]['introduction'],
+        date: new Date(records[i]['created']),
+        ImageUrl: this.pb.files.getUrl(records[i], records[i]['img'])
+      };
       news.push(singleNews);
     }
     return news;
   }
 
-  getNewsFromJSON(): NewInterface[]{
-    const results = require('../ClassesAndInterfaces/news.json').items;
-    var news: NewInterface[] = results.map((record: { [x: string]: any; }) => ({
-      id: record['id'],
-      title: record['title'],
-      desc: record['desc'],
-      date: new Date(record['date']),
-      url: record['url']
-    }));
-
-    return news;
+  async getSingleNewsFromDB(id: string): Promise<News>{
+    let records = await this.pb.collection('News').getOne(id);
+    return {id: records['id'], title: records['title'], desc: records['desc'], introduction: records['introduction'], date: new Date(records['created']), ImageUrl: this.pb.files.getUrl(records, records['img'])};
   }
 }

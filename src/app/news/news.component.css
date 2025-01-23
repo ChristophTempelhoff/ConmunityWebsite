@@ -1,3 +1,44 @@
-.spacingfix{
-    margin-bottom: 50px;
+.card{
+  width: 23rem;
+  height: 100%;
+}
+.card-deck{
+  padding-bottom: 27px;
+}
+.card-title{
+  font-size: 30px;
+}
+
+.titelspacing{
+  height: 110px;
+  display: flex;
+  align-items: center;
+}
+
+.cardundertitel{
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cardtextstyle {
+  text-decoration: none;
+  
+font-size: 18px;
+}
+
+.linkclass{
+  text-decoration: none;
+  color: white;
+  background-color: dark;
+  
+}
+
+.date{
+  opacity: 70%;
+  font-size: 20px;
+}
+
+.card-body{
+padding-bottom: 30px;
 }

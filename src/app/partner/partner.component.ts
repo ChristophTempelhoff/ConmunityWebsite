@@ -10,6 +10,9 @@ import { Partner } from '../ClassesAndInterfaces/Partner';
 export class PartnerComponent {
 PartnersTmp: Partner[] = [];
 Partners: Partner[][] = [];
+
+isLoading: boolean = true; // Loading state
+
 rowsToIterate: number[] = [];
   constructor(){
     this.initializePartners();
@@ -19,6 +22,8 @@ rowsToIterate: number[] = [];
     var ps: PartnersService = new PartnersService();
     this.PartnersTmp = await ps.getPartnersFromDB();
     var rows: number = Math.ceil(this.PartnersTmp.length / 3);
+
+    this.isLoading = false; // Set loading to false after loading
     
     for (let i = 0; i < rows; i++) {
       var partnersArr: Partner[] = [];

@@ -16,6 +16,7 @@ import { VereinComponent } from './verein/verein.component';
 import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
 import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
+import { SingleNewsComponent } from './news/single-news/single-news.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.comp
     ZieleComponent,
     DownloadComponent,
     MitgliedsschaftComponent,
+    SingleNewsComponent,
   ],
   imports: [
     BrowserModule,

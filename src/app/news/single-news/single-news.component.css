@@ -1,0 +1,71 @@
+.card{
+    width: 80%; /* VW damit es responsive ist */
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4vh;
+    padding-bottom: 1vw;
+  }
+  
+  .titelspacing{
+    height: 110px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cardundertitel{
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .cardtextstyle {
+    text-decoration: none;
+  }
+  
+  .linkclass{
+    text-decoration: none;
+    color: white;
+    background-color: dark;
+    
+  }
+  
+  .date{
+    opacity: 70%;
+  }
+
+  /* If screen size is more than 700px wide, set the font-size of <div> to ...px */
+@media screen and (min-width: 700px) {
+  .card-title{
+    font-size: 50px;
+  }
+
+  .date{
+    font-size: 20px;
+    opacity: 70%;
+  }
+
+  .cardtextstyle {
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+}
+
+/* If screen size is 700px wide, or less, set the font-size of <div> to ...px */
+@media screen and (max-width: 700px) {
+  .card-title{
+    font-size: 30px;
+  }
+
+  .date{
+    font-size: 18px;
+    opacity: 70%;
+  }
+
+  .cardtextstyle {
+    text-decoration: none;
+    font-size: 16px;
+  }
+}
