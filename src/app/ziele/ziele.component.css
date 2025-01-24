@@ -1,23 +1,5 @@
-.shit {
-    color: white;
-    background-color: hsla(210, 11%, 15%, 80%);
-}
-
-.goodshit{
-    color: rgb(0, 0, 0);
-    background-color: hsla(210, 11%, 15%, 0.616);
-}
-
-.schatten{
-box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.3)
-}
-
 .media {
-    background-color: hsla(210, 11%, 15%, 0.616);
-    color: white;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 15px 50px;
     width: 100%;
     display: flex; /* Make the media container a flex container */
     flex-wrap: wrap; /* Allow the flex items to wrap */
@@ -31,7 +13,6 @@ box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.3)
 .cardtextstyle {
     text-align: left;
 }
-
 
 .positionl {
     offset: relative;

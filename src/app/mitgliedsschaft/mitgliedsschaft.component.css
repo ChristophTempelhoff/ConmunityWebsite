@@ -1,3 +1,21 @@
+.card-body {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align items to the top */
+    height: 100%; /* Ensure the card body takes full height */
+    padding: 20px; /* Add some padding for aesthetics */
+}
+
+.list-container {
+    margin: 20px 0; /* Add some margin around the list */
+    padding: 10px; /* Optional padding for the list container */
+    font-size: 20px;
+}
+
+.button-container {
+    margin-top: auto; /* Push the button to the bottom */
+}
+
 .cardundertitel{
     text-align: center;
     font-weight: bold;
@@ -7,6 +25,7 @@
 .cardtextstyle {
     text-decoration: none;
 }
+
 .cardheader{
     border-color: #b988ea;
     color: #b988ea;
@@ -30,17 +49,16 @@
     align-content: center;
 }
 
- .btn{
+.btn{
     background-color: transparent;
     color: #b988ea;
     border-color: #b988ea;
-   
-    
+    font-size: 20px;
  }
- .btn:hover{
+    .btn:hover{
         color: white;
-    background:   #b988ea;;
-    cursor: pointer;
-    box-shadow: 0 0 0.75em 0.05em #b988ea;
-    text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
- }
+        background: #b988ea;;
+        cursor: pointer;
+        box-shadow: 0 0 0.75em 0.05em #b988ea;
+        text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
+    }

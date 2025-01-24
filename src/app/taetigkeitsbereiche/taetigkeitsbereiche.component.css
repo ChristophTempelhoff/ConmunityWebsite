@@ -1,7 +1,4 @@
-.shit {
-    color: white;
-    background-color: hsla(210, 11%, 15%, 80%);
-}
+
 
 .cardundertitel {
     text-align: center;
@@ -24,7 +21,3 @@ h2 {
     font-size: 2rem;
     font-weight: 100;
 }
-
-a:hover {
-    color: rgb( 82, 100 ,203);
-  }

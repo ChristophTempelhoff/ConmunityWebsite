@@ -1,10 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-.shit{
-    color: white;
-    background-color: hsla(210, 11%, 15%, 80%);
-}
-
-@font-face {
+@font-face {    /*Importiert die Schriftart aus den Assets*/
     font-family: 'Questrial-Regular';
     src: url('src\assets\fonts\Questrial-Regular.ttf')  format('truetype');
     font-weight: normal;
@@ -12,9 +7,42 @@
 }
 
 body{
-    font-family: "Questrial-Regular";
+    font-family: "Questrial-Regular";   /*Setzt die Schriftart der gesammten Seite fest*/
 }
 
+
+.ueberschrift{
+        height: 100%;      /* h-100 */
+        padding: 15px;     /* p-5 */
+        border-radius: 0.3rem; /* rounded-3 */
+        margin-bottom: 35px; /*Abstand nach dem Überschriftelement zum Inhalt*/
+}
+
+.textUE{
+    color: #f8f9fa; /* This is the typical color for text-light in Bootstrap */
+    text-align: center; /* This corresponds to text-center */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.darkbg{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 80%);
+    border-radius: 10px;
+}
+
+
+.lightbg{
+    color: white;
+    background-color: hsla(210, 11%, 15%, 0.616);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.glow{
+    box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.3)
+}
+/*Animation für Tätigkeitsbereiche und Ziele*/
 .timeline {
     display: flex;
     flex-direction: column;

@@ -1,10 +1,10 @@
 
 @media (min-width: 992px){
-.abstand{
+   .abstand{
    padding-bottom: 33vh;
+   }
 }
 
-}
 
 table  th{
    border-bottom-color:  rgb( 82, 100 ,203);;
