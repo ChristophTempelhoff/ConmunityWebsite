@@ -2,11 +2,8 @@
 .sponsors {
     padding: 40px;
     text-align: center;
-    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.12);
-   
   }
   
   .sponsor-list {
@@ -18,10 +15,8 @@
   .sponsor {
     margin: 20px;
     width: 250px;
-    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.12);
     transition: transform 0.5s ease-in-out;
   }
   

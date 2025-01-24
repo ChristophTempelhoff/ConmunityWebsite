@@ -1,7 +1,15 @@
-.shit {
-    color: white;
-    background-color: hsla(210, 11%, 15%, 80%);
+.mitglieder{
+    text-align: center;
+    font-size: 2.7rem;
+    line-height: 1.2;
+    font-weight: 550;
+    color:#ddd;
+    letter-spacing: 1.5px;
+    padding: 40px;
+    margin-bottom: 20px;
 }
+
+/* Design der Cards der Mitglieder */
 
 .cardundertitel {
     font-size: large;

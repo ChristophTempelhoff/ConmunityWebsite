@@ -1,9 +1,10 @@
-<div class="shit pt-5 h-100 p-5 rounded-3">
-  <div class="text-light text-center">
-    <h1>Unsere Partner und Sponsoren</h1>
+<!-- ÜBERSCHRIFT -->
+<div class="lightbg ueberschrift">
+  <div class="textUE">
+      <h1>Unsere Partner und Sponsoren</h1>
   </div>
 </div>
-<br /><br />
+
 
 <div *ngIf="isLoading" style="height: 120vh;">
 
@@ -11,10 +12,13 @@
 
 </div>
 
+
+<!-- INHALT -->
+
 <div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
   <div *ngFor="let partner of Partners[row]" class="container col d-flex justify-content-center mr-auto p-2 card-deck">
     <a *ngIf="partner != undefined" href="{{partner.PartnerURL}}" class="linkclass">
-      <div class="card sponsors goodshit" style="width: 18rem; height: 100%" >
+      <div class="card sponsors lightbg" style="width: 18rem; height: 100%" >
         <img src="{{partner.PartnerImg}}" class="card-img-top" alt="..." />
         <div class="card-body">
           <h4 class="card-title text-center">{{partner.PartnerName}}</h4>
@@ -30,7 +34,7 @@
 <div class="row">
   <div class="col justify-content-center">
     <a href="mailto:sponsoren@conmunity.at" class="linkclass">
-      <div class="card us goodshit">
+      <div class="card us lightbg">
         <div class="container">
           <img src="../../assets/images/Logo und Schrift.png" class="card-img-top" alt="..." style="width: 75%; margin-left: auto; margin-right: auto; display: block;"/>
         </div>

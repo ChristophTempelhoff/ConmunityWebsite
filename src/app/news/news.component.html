@@ -1,21 +1,21 @@
-<div class=" shit pt-5 h-100 p-5 rounded-3 ">
-  <div class=" text-light text-center ">
+<!-- ÜBERSCHRIFT -->
+<div class="lightbg ueberschrift">
+  <div class="textUE">
       <h1>Neuigkeiten</h1>
   </div>
 </div>
 
-<div *ngIf="isLoading" style="height: 120vh;">
+<!-- INHALT -->
 
-  <!-- You can show a loading spinner or message here -->
+<div *ngIf="isLoading" style="height: 120vh;">
 
 </div>
   <br><br>
-
   <div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
     <ng-container *ngFor="let news of News[row]">
       <div  class="container col d-flex justify-content-center mr-auto card-deck">
         <div *ngIf="news.id">
-          <a href="./news/{{news.id}}" class="linkclass">
+          <a routerLink="/news/{{news.id}}" class="linkclass">
           <div class="card">
             <img src="{{news.ImageUrl}}" class="card-img-top" alt="..." />
             <div class="card-body">
@@ -33,5 +33,4 @@
       </div>
     </ng-container>
   </div>
-
 <br><br>

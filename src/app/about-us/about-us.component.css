@@ -1,111 +1,70 @@
+.aufgabenCont{  /* Eine Box um die Überschrift um Padding zu machen */
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
 
-  .media {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 100%;
-    display: flex; /* Make the media container a flex container */
-    flex-wrap: wrap; /* Allow the flex items to wrap */
-    margin-bottom: 100px;
-  }
+.aufgabenUE{  /* Design der Überschrift */
+  text-align: center;
+  font-size: 2.7rem;
+  line-height: 1.2;
+  font-weight: 550;
+  color: #b988ea;
+  letter-spacing: 1.5px;
+  padding: 10px;
+
+}
+
+.text{  /* Design des Texts der "Aufgaben" */
+  font-size: 1.2rem;
+  margin-right: 40px;
+  padding-left: 10px;
+}
+
+
+.media {
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  display: flex; /* Make the media container a flex container */
+  flex-wrap: wrap; /* Allow the flex items to wrap */
+  margin-bottom: 50px;
+}
+
+.media-body {
+  width: 50%; /* Take up 50% of the width */
+  order: 1; /* Set the order to 1, so it comes first */
+}
+
+.media-object {
   
-  .media-body {
-    width: 50%; /* Take up 50% of the width */
-    order: 1; /* Set the order to 1, so it comes first */
-  }
-  
-  .media-object {
-    width: 50%; /* Take up 50% of the width */
-    height: 100%;
-    object-fit: cover;
-    order: 2; /* Set the order to 2, so it comes second */
-  }
-
-
-  .schatten{
-    box-shadow: 10px 10px 15px hsla(0, 0%, 98%, 0.3)
-  }
-
+  border-radius: 8px;
+  width: 50%; /* Take up 50% of the width */
+  height: 100%;
+  object-fit: cover;
+  order: 2; /* Set the order to 2, so it comes second */
+}
 
 
 @media (max-width: 600px) {
-
-
-
   .media {
-
-      background-color: #f7f7f7;
-
-      padding: 20px;
-
-      border: 1px solid #ddd;
-
-      border-radius: 10px;
-
-      width: 100%;
-
       display: flex; /* Make the media container a flex container */
-
       flex-direction: column; /* Change the flex direction to column */
-    
-
     }
 
 
     .media-body {
-
       width: 100%; /* Take up full width */
-
     }
-
 
     .media-object {
-
+      border-radius: 8px;
       width: 100%; /* Take up full width */
-
       flex-grow: 1; /* Take up the remaining height */
-
       object-fit: cover;
-
-      margin: 20px auto; /* Add margin to center the image horizontally */
+      margin: auto; /* Add margin to center the image horizontally */
 
     }
 }
 
 
-  .goodshit{
-    color: white;
-    background-color: hsla(210, 11%, 15%, 0.616);
-}
 
-.text{
-    font-size: 1.2rem;
-    margin-right: 40px;
-    padding-left: 10px;
-}
-
-h2{
-    text-align: center;
-    font-size: 3.4rem;
-    line-height: 1.4;
-    font-weight: 600;
-    color: #b988ea;
-    letter-spacing: 1.5px;
-    text-decoration: underline #b988ea;
-    text-underline-offset: 23px;
-    text-decoration-thickness: 1.6px;
-    padding-bottom: 20px;
-}
-
-
-.ueberschrift{
-    color: white;
-    background-color: hsla(210, 11%, 15%, 0.616);
-
-    padding: 20px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 10px;
-}
