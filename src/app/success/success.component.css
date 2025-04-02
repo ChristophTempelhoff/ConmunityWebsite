@@ -1,0 +1,94 @@
+.cont{  /* Eione Box um die Überschrift um Padding zu machen */
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+  
+  .aufgabenUE{  /* Design der Überschrift */
+    text-align: center;
+    font-size: 2.7rem;
+    line-height: 1.2;
+    font-weight: 550;
+    color: #b988ea;
+    letter-spacing: 1.5px;
+    padding: 10px;
+  }
+  
+  .textleft{  /* Design des Texts der "Aufgaben" */
+    font-size: 1.2rem;
+    margin-right: 40px;
+    padding-left: 10px;
+  }
+  
+  .textright{  /* Design des Texts der "Aufgaben" */
+    font-size: 1.2rem;
+    margin-left: 40px;
+    padding-right: 10px;
+  }
+  .media {
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    display: flex; /* Make the media container a flex container */
+    flex-wrap: wrap; /* Allow the flex items to wrap */
+    margin-bottom: 50px;
+  }
+  
+  .media-body {
+    width: 50%; /* Take up 50% of the width */
+    order: 1; /* Set the order to 1, so it comes first */
+  }
+  
+  .media-object{
+    border-radius: 8px;
+    width: 50%; /* Take up 50% of the width */
+    height: 100%;
+    object-fit: cover;
+    
+  }
+  
+  .media-object.right{
+    order: 2; /* Set the order to 2, so it comes second */
+  }
+  
+  .media-object.left{
+    order: 1; /* Set the order to 2, so it comes second */
+  }
+  
+  
+  
+  @media (max-width: 600px) {
+    .media {
+        display: flex; /* Make the media container a flex container */
+        flex-direction: column; /* Change the flex direction to column */
+    }
+  
+  
+    .media-body {
+      width: 100%; /* Take up full width */
+    }
+  
+    .media-object {
+      border-radius: 8px;
+      width: 100%; /* Take up full width */
+      flex-grow: 1; /* Take up the remaining height */
+      object-fit: cover;
+      margin: auto; /* Add margin to center the image horizontally */
+    }
+  
+    .media-object.left{
+      order: 2; /* Set the order to 2, so it comes second */
+    }
+  
+  }
+  
+  .linkclass{
+    text-decoration: none;
+    color: white;
+    background-color: dark;
+    
+}
+a:hover {
+    color: rgb( 82, 100 ,203);
+  }
+  
+  

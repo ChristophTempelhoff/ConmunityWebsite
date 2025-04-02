@@ -17,6 +17,11 @@ import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
 import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
 import { SingleNewsComponent } from './news/single-news/single-news.component';
+import { RegisterComponent } from './register/register.component';
+import {ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SuccessComponent } from './success/success.component';
+
 
 @NgModule({
   declarations: [
@@ -35,10 +40,17 @@ import { SingleNewsComponent } from './news/single-news/single-news.component';
     DownloadComponent,
     MitgliedsschaftComponent,
     SingleNewsComponent,
+    RegisterComponent,
+    SuccessComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule 
+
   ],
   providers: [],
   bootstrap: [AppComponent]

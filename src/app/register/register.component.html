@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header text-center">
+                  <h4>Registrierung</h4>
+              </div>
+              <div class="card-body">
+                  <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off">
+                      <div class="form-group">
+                          <label for="name" class="form-label">Vorname</label>
+                          <input type="text" name="f_name" formControlName="f_name" autocomplete="off">
+                      </div>
+                      <div class="form-group">
+                        <label for="name" class="form-label">Nachname</label>
+                        <input type="text" name="l_name" formControlName="l_name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" name="email" formControlName="email" autocomplete="off">
+                  </div>
+                  <div class="form-group">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="password" name="Password" formControlName="password" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="mobile" class="form-label">Mobile</label>
+                  <input type="mobile" name="mobile" formControlName="mobile" autocomplete="off">
+              </div>
+                      <button type="submit" class="btn btn-primary w-100">Registrieren</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
