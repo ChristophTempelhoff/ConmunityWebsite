@@ -49,9 +49,6 @@ export class Mitgliedsantraege {
          throw new Error("Postleitzahl muss 4 oder 5 Ziffern enthalten");
       }
 
-      // if (input.pronomen == "andere"){
-      //    alert("Pronomen ist andere");
-      // }
 
       // Set defaults
       this.props = {
