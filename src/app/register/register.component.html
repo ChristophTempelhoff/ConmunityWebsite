@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <div class="row justify-content-center">
       <div class="col-md-6">
           <div class="card">
@@ -6,7 +6,7 @@
                   <h4>Registrierung</h4>
               </div>
               <div class="card-body">
-                  <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off">
+                  <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" class="form-group">
                       <div class="form-group">
                           <label for="name" class="form-label">Vorname</label>
                           <input type="text" name="f_name" formControlName="f_name" autocomplete="off">
@@ -14,7 +14,7 @@
                       <div class="form-group">
                         <label for="name" class="form-label">Nachname</label>
                         <input type="text" name="l_name" formControlName="l_name" autocomplete="off">
-                    </div>
+                        </div>
                     <div class="form-group">
                       <label for="email" class="form-label">Email</label>
                       <input type="email" name="email" formControlName="email" autocomplete="off">
@@ -33,4 +33,256 @@
           </div>
       </div>
   </div>
+</div> -->
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header textUE text-center" style="color: black;">
+          <h4>Antrag auf ordentliche Mitgliedschaft</h4>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">1 Persönliche Daten</h4>
+          <form [formGroup]="mitgliedForm" (ngSubmit)="submit()" autocomplete="off">
+
+            <div class="row">
+              <!-- Vorname -->
+              <div class="form-group col-md-6">
+                <label for="vorname">Vorname</label>
+                <input type="text" formControlName="o_vorname" class="form-control" placeholder="Max" >
+              </div>
+
+              <!-- Nachname -->
+              <div class="form-group col-md-6">
+                <label for="nachname">Nachname</label>
+                <input type="text" formControlName="nachname" class="form-control" placeholder="Mustermann">
+              </div>
+
+              <!-- Bevorzugter Vorname (Optional) -->
+              <div class="form-group col-md-6">
+                <label for="b_name">Bevorzugter Vorname (Wenn vorhanden)</label>
+                <input type="text" formControlName="b_vorname" class="form-control" placeholder="Wie möchtest du genannt werden?">
+              </div>
+            </div>
+
+            <!-- Geburtsdatum -->
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label for="geburtsdatum">Geburtsdatum</label>
+                <input type="date" formControlName="geburtsdatum" class="form-control">
+              </div>
+
+              <!-- Bevorzugte Pronomen -->
+              <div class="form-group col-md-4">
+                <label for="pronomen">Bevorzugte Pronomen</label>
+                <select id="pronomen" class="form-control" formControlName="pronomen" (change)="onPronomenChange()">
+                  <option disabled value="auswahl">Bitte auswählen</option>
+                  <option value="keine">Keine</option>
+                  <option value="sie/ihr">sie/ihr</option>
+                  <option value="er/ihm">er/ihm</option>
+                  <option value="they/them">they/them</option>
+                  <option value="andere">Andere</option>
+                </select>
+              </div>
+              <!-- Other Pronoun input, only shown if 'andere' is selected -->
+              <div class="form-group col-md-4" *ngIf="isAnderesPronomen">
+                <label for="anderesPronomenInput">Andere Pronomen</label>
+                <input type="text" id="anderesPronomenInput" class="form-control" formControlName="anderesPronomen" placeholder="Bitte geben Sie Ihre Pronomen ein">
+              </div>
+            </div>
+          
+
+            <h4 class="card-title" style="padding-top: 2vh;">2 Kontaktmöglichkeiten</h4>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="strasse">Straße</label>
+                <input type="text" formControlName="strasse" class="form-control" placeholder="Straße"> 
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="hausnummer">Hausnummer</label>
+                <input type="text" formControlName="hausnummer" class="form-control" placeholder="1">
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="stiege">Stiege</label>
+                <input type="text" formControlName="stiege" class="form-control" placeholder="1">
+              </div>
+
+              <div class="form-group col-md-2">
+                <label for="tuer">Tür</label>
+                <input type="text" formControlName="tuer" class="form-control" placeholder="1">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-2">
+                <label for="plz">Postleitzahl</label>
+                <input type="text" formControlName="plz" class="form-control" placeholder="1010">
+              </div>
+
+              <div class="form-group col-md-5">
+                <label for="ort">Ort</label>
+                <input type="text" formControlName="ort" class="form-control" placeholder="Musterstadt">
+              </div>
+
+              <div class="form-group col-md-5">
+                <label for="land">Land</label>
+                <select id="land" formControlName="land" class="form-control" (change)="onLandChange($event)">
+                  <option *ngFor="let key of getEnumKeys(ELaender)" [value]="key">{{ ELaender[key] }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail">Email</label>
+                <input type="email" formControlName="email" class="form-control" placeholder="name@email.com">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="vw">Telefonnummer</label>
+                <div style="display: flex; gap: 5px;">
+                  <select id="vw" name="vw" formControlName="vw">
+                    <option value="+43">🇦🇹 +43 </option>
+                    <option value="+49">🇩🇪 +49 </option>
+                    <option value="+41">🇨🇭 +41 </option>
+                    <option value="+423">🇱🇮 +423 </option>
+                    <option value="+352">🇱🇺 +352 </option>
+                    <option value="+32">🇧🇪 +32 </option>
+                    <option value="+39">🇮🇹 +39 </option>
+                  </select>
+                  <input type="tel" formControlName="telefon" class="form-control" placeholder="123456789">
+                </div>
+              </div>
+            </div>
+
+            <h4 class="card-title" style="padding-top: 2vh;">3 Sonstiges</h4>
+
+            <div class="form-group col-md-6">
+              <label for="qualis">Sonstige Qualifikationen</label>
+              <input type="text" formControlName="qualis" class="form-control" placeholder="Erste-Hilfe-Kurs, Excel, usw">
+            </div>
+
+            <!-- <div class="form-group">
+              <label>Bereiche-ID</label>
+              <input type="text" formControlName="bereicheID" class="form-control">
+            </div> -->
+
+            <div class="container mt-4">
+              <h5>Ich bin an der Arbeit in diesen Bereichen interessiert und möchte kontaktiert werden:</h5>
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="sanitaet" formControlName="sus">
+                          <label class="form-check-label" for="sanitaet">Sanität und Sicherheit</label>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="presse" formControlName="pmk">
+                          <label class="form-check-label" for="presse">Presse, Medien und Kommunikation</label>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="workshops" formControlName="wst">
+                          <label class="form-check-label" for="workshops">Workshops, Schulungen und Trainings</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="row mt-3">
+                  <div class="col-md-4">
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="technik" formControlName="tud">
+                          <label class="form-check-label" for="technik">Technik und Digitales</label>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="mitgliederbetreuung" formControlName="mb">
+                          <label class="form-check-label" for="mitgliederbetreuung">Mitgliederbetreuung</label>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <!-- Leere Spalte für gleichmäßige Verteilung -->
+                  </div>
+              </div>
+              </div>
+<!-- 
+                        <div class="container mt-4">
+                            <h5>Ich bin an der Arbeit in diesen Bereichen interessiert und möchte kontaktiert werden:</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sanitaet" formControlName="sanitaet">
+                                        <label class="form-check-label" for="sanitaet">Sanität und Sicherheit</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="presse" formControlName="presse">
+                                        <label class="form-check-label" for="presse">Presse, Medien und Kommunikation</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="workshops" formControlName="workshops">
+                                        <label class="form-check-label" for="workshops">Workshops, Schulungen und Trainings</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="technik" formControlName="technik">
+                                        <label class="form-check-label" for="technik">Technik und Digitales</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="mitgliederbetreuung" formControlName="mitgliederbetreuung">
+                                        <label class="form-check-label" for="mitgliederbetreuung">Mitgliederbetreuung</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                     Leere Spalte für gleichmäßige Verteilung 
+                                </div>
+                            </div>
+                        </div>  -->
+
+                        <h4 class="card-title" style="padding-top: 2vh;">4 Formelles</h4>
+                        <div class="container mt-4">
+                            <p>Mit dem Absenden des Antrags bestätige ich, dass ich:</p>
+                            <ul>
+                                <li>
+                                    die <strong>Statuten, Mitgliedschaftsbedingungen, Nutzungsbedingungen E-Mail</strong> und die <strong>Regelungen zu Mitgliedsbeiträgen</strong> erhalten habe und akzeptiere,
+                                </li>
+                                <li>
+                                    die <strong>Datenschutzerklärung</strong> gelesen habe und der Verarbeitung meiner Daten zustimme,
+                                </li>
+                                <li>
+
+                                  
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter" formControlName="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                      (optional) freiwillig einwillige, Vereinsinfos und Newsletter an meine private E-Mail zu erhalten.
+                                    </label>
+                                  </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Registrieren</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+

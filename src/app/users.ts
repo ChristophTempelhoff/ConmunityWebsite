@@ -1,4 +1,4 @@
-export class Users{
+export class Users{     //neu in mitgliedsantraege.ts
 
         public id: number;
         public f_name: string;

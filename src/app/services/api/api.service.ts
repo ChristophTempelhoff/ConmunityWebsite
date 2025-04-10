@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
 import { Users } from '../../users';
+import { Mitgliedsantraege } from 'src/app/mitgliedsantraege';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,17 @@ export class ApiService {
 
   constructor(private httpClient : HttpClient, private router : Router) { }
 
-  public userregistration(f_name:any, l_name:any, email:any, password:any, mobile:any){
+  public create_antrag(antrag: Mitgliedsantraege){
     return this.httpClient.post<any>(this.baseUrl + '/register.php',
-      {
-        f_name, l_name, email, password, mobile
-      }
+      antrag.getProps() // <--- wichtig!
     )
-    .pipe(map(Users =>{
-      if (Users["message"]=="success") {
+
+    .pipe(map(gesendeterAntrag =>{
+      if(gesendeterAntrag["message"]=="success"){
         this.router.navigate(['success']);
       }
 
-        
-      return Users;
+      return gesendeterAntrag;
     }));
   }
 }
