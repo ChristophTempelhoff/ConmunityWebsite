@@ -14,15 +14,15 @@
 <!-- INHALT -->
 
 <div *ngIf="!isLoading" class="card ">
-    <img src="{{news.ImageUrl}}" class="card-img-top" alt="..." />
+    <img src="../../../assets/images/news/{{news.img}}" class="card-img-top" alt="..." />
     <div class="card-body">
       <div class="titelspacing">
         <h4 class="card-title text-center">{{news.title}}</h4>
       </div>
       
-      <p class="date">Veröffentlicht: {{news.date | date: "dd.MM.yyyy"}}</p>
+      <p class="date">Veröffentlicht: {{news.created | date: "dd.MM.yyyy"}}</p>
       <p class="card-text cardtextstyle">
-        {{news.desc}}
+        {{news.description}}
       </p>
     </div>
 </div>
