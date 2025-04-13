@@ -2,7 +2,7 @@
 include_once "db_connect.php";
 include "documentsClass.php";
 
-$sql = "SELECT * FROM documents;";
+$sql = "SELECT * FROM documents ORDER BY created DESC;";
 
 $documents = array();
 

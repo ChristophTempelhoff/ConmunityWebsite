@@ -4,7 +4,7 @@ include "partnerClass.php";
 
 $partners = array();
 
-$sql = "SELECT * FROM `partner`";
+$sql = "SELECT * FROM `partner` ORDER BY created DESC";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
