@@ -17,13 +17,13 @@
 
 <div *ngFor="let row of rowsToIterate" class="d-flex flex-lg-row flex-column">
   <div *ngFor="let partner of Partners[row]" class="container col d-flex justify-content-center mr-auto p-2 card-deck">
-    <a *ngIf="partner != undefined" href="{{partner.PartnerURL}}" class="linkclass">
+    <a *ngIf="partner != undefined" href="{{partner.url}}" class="linkclass">
       <div class="card sponsors lightbg" style="width: 18rem; height: 100%" >
-        <img src="{{partner.PartnerImg}}" class="card-img-top" alt="..." />
+        <img src="../../assets/images/partners/{{partner.img}}" class="card-img-top" alt="..." />
         <div class="card-body">
-          <h4 class="card-title text-center">{{partner.PartnerName}}</h4>
+          <h4 class="card-title text-center">{{partner.name}}</h4>
           <p class="card-text cardtextstyle">
-            {{partner.PartnerDesc}}
+            {{partner.description}}
           </p>
         </div>
       </div>

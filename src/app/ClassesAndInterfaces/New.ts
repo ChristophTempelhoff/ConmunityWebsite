@@ -1,8 +1,8 @@
 export interface News{
-    id: string;
+    newsID: string;
     title: string;
-    desc: string;
     introduction: string;
-    date: Date;
-    ImageUrl: string;
+    description: string;
+    created: string;
+    img: string;
 }

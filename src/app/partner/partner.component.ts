@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PartnersService } from '../services/partners/partners.service';
 import { Partner } from '../ClassesAndInterfaces/Partner';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-partner',
@@ -19,25 +20,27 @@ rowsToIterate: number[] = [];
   }
 
   async initializePartners(){
-    var ps: PartnersService = new PartnersService();
-    this.PartnersTmp = await ps.getPartnersFromDB();
-    var rows: number = Math.ceil(this.PartnersTmp.length / 3);
-
-    this.isLoading = false; // Set loading to false after loading
-    
-    for (let i = 0; i < rows; i++) {
-      var partnersArr: Partner[] = [];
-      partnersArr.push(this.PartnersTmp[0]);
-      partnersArr.push(this.PartnersTmp[1]);
-      partnersArr.push(this.PartnersTmp[2]);
-    
+    var ps: PartnersService = new PartnersService(inject(HttpClient));
+    ps.getPartnersFromDB().subscribe((partners) => {
+      this.PartnersTmp = partners;
+      var rows: number = Math.ceil(this.PartnersTmp.length / 3);
+  
+      this.isLoading = false; // Set loading to false after loading
       
-
-      this.Partners.push(partnersArr);
-     
-      this.PartnersTmp.splice(0,3);
-      this.rowsToIterate.push(i);
-    }
+      for (let i = 0; i < rows; i++) {
+        var partnersArr: Partner[] = [];
+        partnersArr.push(this.PartnersTmp[0]);
+        partnersArr.push(this.PartnersTmp[1]);
+        partnersArr.push(this.PartnersTmp[2]);
+      
+        
+  
+        this.Partners.push(partnersArr);
+       
+        this.PartnersTmp.splice(0,3);
+        this.rowsToIterate.push(i);
+      }
+    });
 
     
   }
