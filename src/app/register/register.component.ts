@@ -116,8 +116,6 @@ export class RegisterComponent implements OnInit {
       // Erstellung des Antrags
       const antrag = new Mitgliedsantraege(validInput);
 
-      console.log(antrag.getProps());
-
       // Daten an den API-Service senden
       this.dataService.create_antrag(antrag)
         .pipe(first())

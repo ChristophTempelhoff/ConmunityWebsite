@@ -15,3 +15,4 @@ if (isset($newsID)) {
     $singleNew = new News($newsID, $title, $introduction, $description, $created, $img);
     echo json_encode($singleNew);
 }
+?>

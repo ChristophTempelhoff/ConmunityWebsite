@@ -1,7 +1,7 @@
 export interface Partner{
-    PartnerID: String;
-    PartnerName: String;
-    PartnerDesc: String;
-    PartnerURL: String;
-    PartnerImg: String;
+    partnerID: string;
+    name: string;
+    description: string;
+    url: string;
+    img: string;
 }
