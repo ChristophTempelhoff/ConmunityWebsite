@@ -1,48 +1,15 @@
-<!-- <div class="container mt-5">
-  <div class="row justify-content-center">
-      <div class="col-md-6">
-          <div class="card">
-              <div class="card-header text-center">
-                  <h4>Registrierung</h4>
-              </div>
-              <div class="card-body">
-                  <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" class="form-group">
-                      <div class="form-group">
-                          <label for="name" class="form-label">Vorname</label>
-                          <input type="text" name="f_name" formControlName="f_name" autocomplete="off">
-                      </div>
-                      <div class="form-group">
-                        <label for="name" class="form-label">Nachname</label>
-                        <input type="text" name="l_name" formControlName="l_name" autocomplete="off">
-                        </div>
-                    <div class="form-group">
-                      <label for="email" class="form-label">Email</label>
-                      <input type="email" name="email" formControlName="email" autocomplete="off">
-                  </div>
-                  <div class="form-group">
-                    <label for="Password" class="form-label">Password</label>
-                    <input type="password" name="Password" formControlName="password" autocomplete="off">
-                </div>
-                <div class="form-group">
-                  <label for="mobile" class="form-label">Mobile</label>
-                  <input type="mobile" name="mobile" formControlName="mobile" autocomplete="off">
-              </div>
-                      <button type="submit" class="btn btn-primary w-100">Registrieren</button>
-                  </form>
-              </div>
-          </div>
-      </div>
+<!-- ÜBERSCHRIFT -->
+<div class="lightbg ueberschrift">
+  <div class="textUE">
+      <h1>Antrag auf ordentliche Mitgliedschaft</h1>
   </div>
-</div> -->
+</div>
 
-
-<div class="container mt-5">
+<div class="container mt-5 pb-5">
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header textUE text-center" style="color: black;">
-          <h4>Antrag auf ordentliche Mitgliedschaft</h4>
-        </div>
+        <!-- INHALT -->
         <div class="card-body">
           <h4 class="card-title">1 Persönliche Daten</h4>
           <form [formGroup]="mitgliedForm" (ngSubmit)="submit()" autocomplete="off">
@@ -52,18 +19,32 @@
               <div class="form-group col-md-6">
                 <label for="vorname">Vorname</label>
                 <input type="text" formControlName="o_vorname" class="form-control" placeholder="Max" >
+                <div *ngIf="mitgliedForm.get('o_vorname')?.touched && mitgliedForm.get('o_vorname')?.invalid" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('o_vorname')?.errors?.['required']">Vorname ist erforderlich.</small>
+                  <small *ngIf="mitgliedForm.get('o_vorname')?.errors?.['minlength']">Mind. 2 Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                  <small *ngIf="mitgliedForm.get('o_vorname')?.errors?.['pattern']">Ungültige Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                </div>
               </div>
 
               <!-- Nachname -->
               <div class="form-group col-md-6">
                 <label for="nachname">Nachname</label>
                 <input type="text" formControlName="nachname" class="form-control" placeholder="Mustermann">
+                <div *ngIf="mitgliedForm.get('nachname')?.invalid && mitgliedForm.get('nachname')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('nachname')?.errors?.['required']">Nachname ist erforderlich.</small>
+                  <small *ngIf="mitgliedForm.get('nachname')?.errors?.['minlength']">Mind. 2 Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                  <small *ngIf="mitgliedForm.get('nachname')?.errors?.['pattern']">Ungültige Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                </div>
               </div>
 
-              <!-- Bevorzugter Vorname (Optional) -->
+              <!-- Bevorzugter Vorname -->
               <div class="form-group col-md-6">
                 <label for="b_name">Bevorzugter Vorname (Wenn vorhanden)</label>
                 <input type="text" formControlName="b_vorname" class="form-control" placeholder="Wie möchtest du genannt werden?">
+                <div *ngIf="mitgliedForm.get('b_vorname')?.invalid && mitgliedForm.get('b_vorname')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('b_vorname')?.errors?.['minlength']">Mind. 2 Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                  <small *ngIf="mitgliedForm.get('b_vorname')?.errors?.['pattern']">Ungültige Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                </div>
               </div>
             </div>
 
@@ -72,62 +53,104 @@
               <div class="form-group col-md-4">
                 <label for="geburtsdatum">Geburtsdatum</label>
                 <input type="date" formControlName="geburtsdatum" class="form-control">
+                <div *ngIf="mitgliedForm.get('geburtsdatum')?.touched && mitgliedForm.get('geburtsdatum')?.invalid" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('geburtsdatum')?.errors?.['required']">Geburtsdatum ist erforderlich.</small>
+                  <small *ngIf="mitgliedForm.get('geburtsdatum')?.errors?.['invalidDate']">
+                    Bitte gib ein gültiges Geburtsdatum an.
+                  </small>
+                  <small *ngIf="mitgliedForm.get('geburtsdatum')?.errors?.['minAge']">
+                    Mindestalter ist {{ mitgliedForm.get('geburtsdatum')?.errors?.['minAge'].requiredAge }} Jahre. Wenn du unter 18 bist, fülle bitte mit deinem Erziehungsberechtigten das 
+                    PDF Formular aus und sende es uns per mail an <a href="mailto:verwaltung@conmunity.at" class="text-danger d-block">verwaltung&#64;conmunity.at</a>
+                  </small>
+                </div>
               </div>
 
               <!-- Bevorzugte Pronomen -->
               <div class="form-group col-md-4">
                 <label for="pronomen">Bevorzugte Pronomen</label>
                 <select id="pronomen" class="form-control" formControlName="pronomen" (change)="onPronomenChange()">
-                  <option disabled value="auswahl">Bitte auswählen</option>
+                  <option disabled value="">Bitte auswählen</option>
                   <option value="keine">Keine</option>
                   <option value="sie/ihr">sie/ihr</option>
                   <option value="er/ihm">er/ihm</option>
                   <option value="they/them">they/them</option>
                   <option value="andere">Andere</option>
                 </select>
+                <div *ngIf="mitgliedForm.get('pronomen')?.touched && mitgliedForm.get('pronomen')?.invalid" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('pronomen')?.errors?.['required']">Pronomen ist erforderlich.</small>
+                </div>
               </div>
-              <!-- Other Pronoun input, only shown if 'andere' is selected -->
+             
+              <!-- Anderes Pronomen Feld erscheint wenn "Andere" ausgewählt wurde -->
               <div class="form-group col-md-4" *ngIf="isAnderesPronomen">
                 <label for="anderesPronomenInput">Andere Pronomen</label>
                 <input type="text" id="anderesPronomenInput" class="form-control" formControlName="anderesPronomen" placeholder="Bitte geben Sie Ihre Pronomen ein">
+                <div *ngIf="mitgliedForm.get('anderesPronomen')?.touched && mitgliedForm.get('anderesPronomen')?.invalid" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('anderesPronomen')?.errors?.['required']">Pronomen ist erforderlich.</small>
+                </div>
               </div>
             </div>
           
-
+            
             <h4 class="card-title" style="padding-top: 2vh;">2 Kontaktmöglichkeiten</h4>
             <div class="row">
+              <!-- Straße -->
               <div class="form-group col-md-6">
                 <label for="strasse">Straße</label>
                 <input type="text" formControlName="strasse" class="form-control" placeholder="Straße"> 
+                <div *ngIf="mitgliedForm.get('strasse')?.invalid && mitgliedForm.get('strasse')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('strasse')?.errors?.['required']">Strasse ist erforderlich.</small>
+                  <small *ngIf="mitgliedForm.get('strasse')?.errors?.['minlength']">Mind. 2 Zeichen</small>
+                  <small *ngIf="mitgliedForm.get('strasse')?.errors?.['pattern']">Ungültige Zeichen</small>
+                </div>
               </div>
-
+              <!-- Hausnummer -->
               <div class="form-group col-md-2">
                 <label for="hausnummer">Hausnummer</label>
                 <input type="text" formControlName="hausnummer" class="form-control" placeholder="1">
+                <div *ngIf="mitgliedForm.get('hausnummer')?.invalid && mitgliedForm.get('hausnummer')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('hausnummer')?.errors?.['required']">Hausnummmer ist erforderlich.</small>
+                  <small *ngIf="mitgliedForm.get('hausnummer')?.errors?.['pattern']">Ungültige Zeichen</small>
+                </div>
               </div>
-
+              <!-- Stiege --> 
               <div class="form-group col-md-2">
                 <label for="stiege">Stiege</label>
                 <input type="text" formControlName="stiege" class="form-control" placeholder="1">
+                <div *ngIf="mitgliedForm.get('stiege')?.invalid && mitgliedForm.get('stiege')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('stiege')?.errors?.['pattern']">Ungültige Zeichen</small>
+                </div>
               </div>
-
+              <!-- Tür -->
               <div class="form-group col-md-2">
                 <label for="tuer">Tür</label>
                 <input type="text" formControlName="tuer" class="form-control" placeholder="1">
+                <div *ngIf="mitgliedForm.get('tuer')?.invalid && mitgliedForm.get('tuer')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('tuer')?.errors?.['pattern']">Ungültige Zeichen</small>
+                </div>
               </div>
             </div>
-
+            <!-- Postleitzahl -->
             <div class="row">
               <div class="form-group col-md-2">
                 <label for="plz">Postleitzahl</label>
                 <input type="text" formControlName="plz" class="form-control" placeholder="1010">
+                <div *ngIf="mitgliedForm.get('plz')?.invalid && mitgliedForm.get('plz')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('plz')?.errors?.['required']">Postleitzahl ist erforderlich</small>
+                  <small *ngIf="mitgliedForm.get('plz')?.errors?.['pattern']">Ungültige Postleitzahl</small>
+                </div>
               </div>
-
+              <!-- Ort -->
               <div class="form-group col-md-5">
                 <label for="ort">Ort</label>
                 <input type="text" formControlName="ort" class="form-control" placeholder="Musterstadt">
+                <div *ngIf="mitgliedForm.get('ort')?.touched && mitgliedForm.get('ort')?.invalid" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('ort')?.errors?.['required']">Ort ist erforderlich.</small>
+                  <small *ngIf="mitgliedForm.get('ort')?.errors?.['minlength']">Mind. 2 Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                  <small *ngIf="mitgliedForm.get('ort')?.errors?.['pattern']">Ungültige Zeichen und Anfangsbuchstabe muss groß sein.</small>
+                </div>
               </div>
-
+              <!-- Land Auswahl aus Enum -->
               <div class="form-group col-md-5">
                 <label for="land">Land</label>
                 <select id="land" formControlName="land" class="form-control" (change)="onLandChange($event)">
@@ -135,13 +158,18 @@
                 </select>
               </div>
             </div>
-
+            
             <div class="row">
+              <!-- Email -->
               <div class="form-group col-md-6">
                 <label for="inputEmail">Email</label>
                 <input type="email" formControlName="email" class="form-control" placeholder="name@email.com">
+                <div *ngIf="mitgliedForm.get('email')?.invalid && mitgliedForm.get('email')?.touched" class="text-danger">
+                  <small *ngIf="mitgliedForm.get('email')?.errors?.['required']">Email ist erforderlich</small>
+                  <small *ngIf="mitgliedForm.get('email')?.errors?.['pattern']">Ungültige Email</small>
+                </div>
               </div>
-
+              <!-- Vorwahl -->
               <div class="form-group col-md-6">
                 <label for="vw">Telefonnummer</label>
                 <div style="display: flex; gap: 5px;">
@@ -154,23 +182,23 @@
                     <option value="+32">🇧🇪 +32 </option>
                     <option value="+39">🇮🇹 +39 </option>
                   </select>
+                  <!-- Telefonnummer -->
                   <input type="tel" formControlName="telefon" class="form-control" placeholder="123456789">
+                  <div *ngIf="mitgliedForm.get('telefon')?.invalid && mitgliedForm.get('telefon')?.touched" class="text-danger">
+                    <small *ngIf="mitgliedForm.get('telefon')?.errors?.['required']">Telefonnummer ist erforderlich</small>
+                    <small *ngIf="mitgliedForm.get('telefon')?.errors?.['pattern']">Ungültige Telefonnummer</small>
+                  </div>
                 </div>
               </div>
             </div>
 
             <h4 class="card-title" style="padding-top: 2vh;">3 Sonstiges</h4>
-
+            <!-- Sonstige Qualifikationen -->
             <div class="form-group col-md-6">
               <label for="qualis">Sonstige Qualifikationen</label>
               <input type="text" formControlName="qualis" class="form-control" placeholder="Erste-Hilfe-Kurs, Excel, usw">
             </div>
-
-            <!-- <div class="form-group">
-              <label>Bereiche-ID</label>
-              <input type="text" formControlName="bereicheID" class="form-control">
-            </div> -->
-
+            <!-- Bereiche -->
             <div class="container mt-4">
               <h5>Ich bin an der Arbeit in diesen Bereichen interessiert und möchte kontaktiert werden:</h5>
                 <div class="row">
@@ -211,72 +239,34 @@
                   </div>
               </div>
               </div>
-<!-- 
-                        <div class="container mt-4">
-                            <h5>Ich bin an der Arbeit in diesen Bereichen interessiert und möchte kontaktiert werden:</h5>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="sanitaet" formControlName="sanitaet">
-                                        <label class="form-check-label" for="sanitaet">Sanität und Sicherheit</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="presse" formControlName="presse">
-                                        <label class="form-check-label" for="presse">Presse, Medien und Kommunikation</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="workshops" formControlName="workshops">
-                                        <label class="form-check-label" for="workshops">Workshops, Schulungen und Trainings</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="technik" formControlName="technik">
-                                        <label class="form-check-label" for="technik">Technik und Digitales</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="mitgliederbetreuung" formControlName="mitgliederbetreuung">
-                                        <label class="form-check-label" for="mitgliederbetreuung">Mitgliederbetreuung</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                     Leere Spalte für gleichmäßige Verteilung 
-                                </div>
-                            </div>
-                        </div>  -->
 
-                        <h4 class="card-title" style="padding-top: 2vh;">4 Formelles</h4>
-                        <div class="container mt-4">
-                            <p>Mit dem Absenden des Antrags bestätige ich, dass ich:</p>
-                            <ul>
-                                <li>
-                                    die <strong>Statuten, Mitgliedschaftsbedingungen, Nutzungsbedingungen E-Mail</strong> und die <strong>Regelungen zu Mitgliedsbeiträgen</strong> erhalten habe und akzeptiere,
-                                </li>
-                                <li>
-                                    die <strong>Datenschutzerklärung</strong> gelesen habe und der Verarbeitung meiner Daten zustimme,
-                                </li>
-                                <li>
+              
+              <h4 class="card-title" style="padding-top: 2vh;">4 Formelles</h4>
+              <!-- Einwilligung -->
+              <div class="container mt-4">
+                  <p>Mit dem Absenden des Antrags bestätige ich, dass ich:</p>
+                  <ul>
+                      <li>
+                          die <strong>Statuten, Mitgliedschaftsbedingungen, Nutzungsbedingungen der E-Mail</strong> und die <strong>Regelungen zu Mitgliedsbeiträgen</strong> erhalten habe und akzeptiere,
+                      </li>
+                      <li>
+                          die <strong>Datenschutzerklärung</strong> gelesen habe und der Verarbeitung meiner Daten zustimme,
+                      </li>
+                      <li>
 
-                                  
-                                  <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="newsletter" formControlName="newsletter">
-                                    <label class="form-check-label" for="newsletter">
-                                      (optional) freiwillig einwillige, Vereinsinfos und Newsletter an meine private E-Mail zu erhalten.
-                                    </label>
-                                  </div>
-                                </li>
-                            </ul>
+                        <!-- Newsletter -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="newsletter" formControlName="newsletter">
+                          <label class="form-check-label" for="newsletter">
+                            (optional) freiwillig einwillige, Vereinsinfos und Newsletter an meine private E-Mail zu erhalten.
+                          </label>
                         </div>
+                      </li>
+                  </ul>
+              </div>
 
-                        <button type="submit" class="btn btn-primary w-100">Registrieren</button>
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary w-100">Registrieren</button>   <!-- Hier dann auch PDF-PHP machen -->
                     </form>
                 </div>
             </div>

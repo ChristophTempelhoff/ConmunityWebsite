@@ -2,13 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import {Router} from '@angular/router';
-import { Users } from '../../users';
-import { Mitgliedsantraege } from 'src/app/mitgliedsantraege';
+import { Mitgliedsantraege } from 'src/app/ClassesAndInterfaces/mitgliedsantraege';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class RegisterService {
 
   baseUrl:string = "http://localhost/angularPHP";
 

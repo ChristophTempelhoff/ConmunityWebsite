@@ -13,23 +13,26 @@
     padding: 10px;
   }
   
+
   .textleft{  /* Design des Texts der "Aufgaben" */
     font-size: 1.2rem;
     margin-right: 40px;
     padding-left: 10px;
   }
   
-  .textright{  /* Design des Texts der "Aufgaben" */
-    font-size: 1.2rem;
-    margin-left: 40px;
-    padding-right: 10px;
-  }
   .media {
     padding: 20px;
     border-radius: 10px;
     width: 100%;
     display: flex; /* Make the media container a flex container */
     flex-wrap: wrap; /* Allow the flex items to wrap */
+    margin-bottom: 50px;
+  }
+
+  .media2{
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
     margin-bottom: 50px;
   }
   
@@ -92,3 +95,26 @@ a:hover {
   }
   
   
+
+  .w-100 {
+    width: 100% !important;
+}
+
+.center{
+    justify-content: center;
+    align-content: center;
+}
+
+.btn{
+    background-color: transparent;
+    color: #b988ea;
+    border-color: #b988ea;
+    font-size: 20px;
+ }
+    .btn:hover{
+        color: white;
+        background: #b988ea;;
+        cursor: pointer;
+        box-shadow: 0 0 0.75em 0.05em #b988ea;
+        text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
+    }
