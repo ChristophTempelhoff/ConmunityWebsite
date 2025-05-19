@@ -3,10 +3,30 @@ require_once("bereiche.php");
 include("db_connect.php");
  // Bereiche einfügen
 // Überprüfen, ob das Formular abgesendet wurde
+require_once 'validators.php'; // <-- Wichtig: Einbinden der Klasse
 
 
 // Den Input-Stream lesen und in ein assoziatives Array dekodieren
 $input = json_decode(file_get_contents('php://input'), true);
+
+$validator = new Validator($input);
+if (!$validator->validate()) {
+    // 3. Fehler zurückgeben, falls Validierung fehlschlägt
+    http_response_code(422); // Unprocessable Entity
+    echo json_encode([
+        'error' => 'Validation failed',
+        'details' => $validator->getErrors()
+    ]);
+    exit;
+}
+
+// 4. Wenn valide: Weiter mit Datenbankverarbeitung o. Ä.
+$vorname = $input['o_vorname'];
+$nachname = $input['nachname'];
+$email = $input['email'];
+$telefon = $input['telefon'];
+$geburtsdatum = $input['geburtsdatum'];
+
 
 // Überprüfen, ob alle benötigten Felder vorhanden sind
 if (isset($input['o_vorname'], $input['nachname'], $input['geburtsdatum'], $input['pronomen'], 
@@ -76,7 +96,8 @@ if ($new_bereicheID == 0) {
     $conn->close();
 } else {
     // Fehlende Eingabedaten
-    echo "Fehlende Eingabedaten.";
+   // echo "Fehlende Eingabedaten.";
+    echo json_encode(["error" => "Fehlende Eingabedatennnnnn.", "debug_raw" => $dataRaw]);
     exit;
 }
 

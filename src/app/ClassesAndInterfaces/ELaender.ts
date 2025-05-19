@@ -7,3 +7,5 @@ export enum ELaender {
     BE = "🇧🇪 Belgien",
     IT = "🇮🇹 Italien"
  }
+
+ //Bei Änderung auch in der Validators.php anpassen!!!
