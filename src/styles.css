@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {    /*Importiert die Schriftart aus den Assets*/
     font-family: 'Questrial-Regular';
-    src: url('src\assets\fonts\Questrial-Regular.ttf')  format('truetype');
+   src: 
+   url('src/assets/fonts/Questrial-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -9,6 +10,12 @@
 body{
     font-family: "Questrial-Regular";   /*Setzt die Schriftart der gesammten Seite fest*/
 }
+
+select, 
+select option {
+ font-family: 'Questrial-Regular', Arial, Helvetica, sans-serif;
+}
+
 
 
 .ueberschrift{

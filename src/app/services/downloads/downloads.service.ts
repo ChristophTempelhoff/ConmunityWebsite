@@ -1,26 +1,30 @@
-import { Document } from 'src/app/ClassesAndInterfaces/Document';
+
 import { Injectable } from '@angular/core';
 import PocketBase, {RecordModel} from 'pocketbase';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { Document } from "../../ClassesAndInterfaces/Document";
+
+
+@Injectable({ providedIn: 'root' })
 export class DownloadsService {
+  private apiUrl = 'http://localhost/angularPHP/documents/get_files.php'; // NUR LOKAL!!!!!!!!!!!!!! dann in Prodction auf echte db
 
-  constructor() { }
 
-  async GetDocsFromDB(): Promise<Document[]>{
-    const pb = new PocketBase('https://backend.conmunity.at');
+  constructor(private http: HttpClient) {}
 
-    var docs: Document[] = [];
+  getDocuments(search: string = '', type: string = ''): Observable<Document[]> {
+    let params = new HttpParams();
+    if (search) params = params.set('search', search);
+    if (type) params = params.set('type', type);
 
-    const records = await pb.collection('documents').getFullList({
-      sort: '-updated',
-    });
-    for (let i = 0; i < records.length; i++) {
-      var singleDoc: Document = {id: records[i]['id'], document_name: records[i]['document_name'], document: pb.files.getUrl(records[i], records[i]['document']), created: records[i]['created'], updated: records[i]['updated']};
-      docs.push(singleDoc);
-    }
-    return docs;
+    return this.http.get<Document[]>(this.apiUrl, { params });
   }
+
+  getFileTypes(): Observable<string[]> {
+     return this.http.get<string[]>('http://localhost/angularPHP/documents/filetype.php');
+  }
+
 }

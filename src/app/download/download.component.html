@@ -5,39 +5,33 @@
   </div>
 </div>
 
-<div *ngIf="isLoading" style="height: 120vh;">
-
-  <!-- You can show a loading spinner or message here -->
-
-</div>
-
-
 <!-- INHALT -->
- 
-<div class="bgdark table-responsive d-flex abstand ">
-  <table class="table table-hover table-dark ">
-    <thead>
-      <tr>
-        <th scope="col">Dokumenten-Name</th>
-        <th scope="col">Zuletzt bearbeitet</th>
-        <th scope="col">Download</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let doc of Docs">
-          <td class="align-items-center">{{doc.document_name}}</td>
-          <td>{{doc.updated | date: "dd.MM.yyyy"}}</td>
-          <td>
-            <a
-              href={{doc.document}}
-              class="nav-link" download="true"
-              ><button type="button" class="btn btn-primary">Download</button></a
-            >
-          </td>
-        </tr>
-    </tbody>
-  </table>
+
+
+<div class="download-section darkbg container">
+
+  <div class="form-group row mb-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control download-search" [(ngModel)]="search" placeholder="Nach Namen suchen..." (input)="fetchDocuments()" />
+    </div>
+
+    <div class="col-md-4" >
+      <select class="download-filter form-control" [(ngModel)]="fileType" (change)="fetchDocuments()">
+        <option value="">Alle Dateiformate</option>
+        <option *ngFor="let type of fileTypes" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+  </div>
+
+   <div>
+    <div *ngFor="let doc of documents" class="download-card flex">
+      <div class="text-group">
+        <h3 class="document-name">{{ doc.name }}</h3>
+        <p class="document-text">{{ doc.fileType }} •  {{ doc.created | date: 'mediumDate' }}</p>
+      </div>
+      <a class="download-btn" [href]="doc.url" target="_blank" download>
+        Download
+      </a>
+    </div>
+  </div>
 </div>
-
-
-
