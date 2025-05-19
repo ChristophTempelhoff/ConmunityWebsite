@@ -1,23 +1,34 @@
-import { Component } from '@angular/core';
-import { DownloadsService } from '../services/downloads/downloads.service';
+import { Component, OnInit } from '@angular/core';
+import { DownloadsService } from "../services/downloads/downloads.service";
 import { Document } from '../ClassesAndInterfaces/Document';
+
 
 @Component({
   selector: 'app-download',
   templateUrl: './download.component.html',
   styleUrls: ['./download.component.css']
 })
-export class DownloadComponent {
-  Docs: Document[] = [];
-  isLoading: boolean = true; // Loading state
+export class DownloadComponent implements OnInit {
+  documents: Document[] = [];
+  search = '';
+  fileType: string = ''; 
+  fileTypes: string[] = [];
 
-  constructor(){
-    this.initializeDocs();
-  }
-  async initializeDocs() {
-    var ds: DownloadsService = new DownloadsService();
-    this.Docs = await ds.GetDocsFromDB();
+  constructor(private downloadService: DownloadsService) {}
 
-    this.isLoading = false; // Set loading to false after loading
+  ngOnInit(): void {
+    this.fetchDocuments();
+  this.fetchFileTypes(); // 👈 load types from DB
   }
+
+  fetchDocuments(): void {
+   this.downloadService.getDocuments(this.search, this.fileType).subscribe((data: Document[]) => {
+  this.documents = data;
+});
+  }
+  fetchFileTypes(): void {
+ this.downloadService.getFileTypes().subscribe((data: string[]) => {
+  this.fileTypes = data;
+});
+}
 }
