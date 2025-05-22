@@ -1,13 +1,22 @@
 <?php
+header('Content-Type: application/json; charset=utf-8'); 
 require_once("bereiche.php");
 include("db_connect.php");
  // Bereiche einfügen
 // Überprüfen, ob das Formular abgesendet wurde
 require_once 'validators.php'; // <-- Wichtig: Einbinden der Klasse
+require_once 'pdf_creator.php';
+require_once 'AntragStellerClass.php';
 
 
 // Den Input-Stream lesen und in ein assoziatives Array dekodieren
-$input = json_decode(file_get_contents('php://input'), true);
+$dataRaw = file_get_contents('php://input');
+$input = json_decode($dataRaw, true);
+
+if (json_last_error() !== JSON_ERROR_NONE) {
+    echo json_encode(["error" => "Ungültiges JSON", "raw" => $dataRaw]);
+    exit;
+}
 
 $validator = new Validator($input);
 if (!$validator->validate()) {
@@ -20,12 +29,7 @@ if (!$validator->validate()) {
     exit;
 }
 
-// 4. Wenn valide: Weiter mit Datenbankverarbeitung o. Ä.
-$vorname = $input['o_vorname'];
-$nachname = $input['nachname'];
-$email = $input['email'];
-$telefon = $input['telefon'];
-$geburtsdatum = $input['geburtsdatum'];
+
 
 
 // Überprüfen, ob alle benötigten Felder vorhanden sind
@@ -33,10 +37,13 @@ if (isset($input['o_vorname'], $input['nachname'], $input['geburtsdatum'], $inpu
     $input['strasse'], $input['hausnummer'], $input['plz'], $input['ort'], $input['land'], 
     $input['email'], $input['telefon'], $input['qualis'], $input['newsletter'])) {
 
+
+    $date = new DateTime($input['geburtsdatum']);
+
     $o_vorname = $input['o_vorname'];
     $b_vorname = isset($input['b_vorname']) ? $input['b_vorname'] : null;  // Optionales Feld
     $nachname = $input['nachname'];
-    $geburtsdatum = $input['geburtsdatum'];
+    $geburtsdatum = $date->format('Y-m-d');
     $pronomen = $input['pronomen'];
     $strasse = $input['strasse'];
     $hausnummer = $input['hausnummer'];
@@ -58,7 +65,7 @@ if (isset($input['o_vorname'], $input['nachname'], $input['geburtsdatum'], $inpu
 
 // Optional: Überprüfen, ob die bereicheID gültig ist
 
-$checkBereicheID = $conn->prepare("SELECT COUNT(*) FROM bereiche");
+$checkBereicheID = $conn->prepare("SELECT bereicheID FROM `bereiche` ORDER BY bereicheID desc LIMIT 1; ");
 $checkBereicheID->execute();
 
 $checkBereicheID->bind_result($new_bereicheID);
@@ -69,7 +76,7 @@ if ($new_bereicheID == 0) {
     exit;
 }
 
-
+    // ANFANG BUG-BEREICH
     // Bereite die SQL-Anweisung vor
     $sql = "INSERT INTO mitgliedsantraege (o_vorname, b_vorname, nachname, geburtsdatum, pronomen, 
         strasse, hausnummer, stiege, tuer, plz, ort, land, email, telefon, qualis, bereicheID, newsletter)
@@ -77,12 +84,22 @@ if ($new_bereicheID == 0) {
 
     if ($stmt = $conn->prepare($sql)) {
         // Parameter binden
-        $stmt->bind_param("sssssssssssssssss", $o_vorname, $b_vorname, $nachname, $geburtsdatum, 
+        $stmt->bind_param("sssssssssssssssii", $o_vorname, $b_vorname, $nachname, $geburtsdatum, 
             $pronomen, $strasse, $hausnummer, $stiege, $tuer, $plz, $ort, $land, $email, $telefon, $qualis, $new_bereicheID, $newsletter);
-
         // Ausführen der Abfrage
         if ($stmt->execute()) {
-            echo json_encode(["message" => "Daten erfolgreich gespeichert."]);
+    // ENDE BUG-BEREICH
+
+
+            $checkAntragsID = $conn->prepare("SELECT antragsID FROM mitgliedsantraege ORDER BY antragsID desc LIMIT 1;");
+            $checkAntragsID->execute();
+            $checkAntragsID->bind_result($antragsID);
+            $checkAntragsID->fetch();
+            $checkAntragsID->close();
+            $pdf = new pdf_creator();
+            $antragsteller = new antrag_steller($input);
+            $pdf->createAntragsPDF($antragsteller, $antragsID);
+            echo json_encode(["message" => "Daten erfolgreich gespeichert.", "Antragsnummer" => $antragsID]);
         } else {
              echo json_encode(["error" => "Fehler beim Speichern der Daten: " . $stmt->error]);
         }

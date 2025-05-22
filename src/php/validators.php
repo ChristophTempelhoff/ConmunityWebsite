@@ -53,7 +53,7 @@ class Validator {
 
     private function validateGeburtsdatum() {
         $value = $this->data['geburtsdatum'] ?? '';
-    if (empty($value) || !$timestamp = strtotime($value)) {
+    if (empty($value)) {
         $this->errors['geburtsdatum'] = 'Ungültiges Geburtsdatum';
         return;
     }

@@ -3,8 +3,8 @@ include_once("../db_connect.php");
 include("../newsClass.php");
 
 
-$newsID = explode("/", getenv('REQUEST_URI'))[4];
-if (isset($newsID)) {
+$newsID = $_GET['newsID'] ?? null;
+if ($newsID != null) {
     $sql = "SELECT * FROM news WHERE newsID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $newsID);

@@ -27,7 +27,7 @@
     <div *ngFor="let doc of documents" class="download-card flex">
       <div class="text-group">
         <h3 class="document-name">{{ doc.name }}</h3>
-        <p class="document-text">{{ doc.fileType }} •  {{ doc.created | date: 'mediumDate' }}</p>
+        <p class="document-text">{{ doc.fileType }} •  {{ doc.created | date: 'dd.MM.yyyy' }}</p>
       </div>
       <a class="download-btn" [href]="doc.url" target="_blank" download>
         Download

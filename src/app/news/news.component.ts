@@ -27,7 +27,6 @@ export class NewsComponent {
   async initializeNews(){
     this.newsService.GetNewsFromDB().subscribe((news) => {
       news.forEach((newObj) => {
-        console.log(newObj);
         this.NewsTmp.push(newObj);
       })
       let rows: number = Math.ceil(this.NewsTmp.length / 3);
