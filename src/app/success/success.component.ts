@@ -7,13 +7,14 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   styleUrls: ['./success.component.css']
 })
 export class SuccessComponent {
+  antragsID: string | null = null;
 
-  antragsNummer: number = 0;
+  constructor(private route: ActivatedRoute) {}
 
-  constructor(private route: ActivatedRoute){
-    if(route.snapshot.queryParamMap.has("antragsID")){
-      this.antragsNummer = route.snapshot.queryParamMap.get("antragsID") as unknown as number;
-    }
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.antragsID = params['antragsID'];
+      console.log('Empfangene AntragsID:', this.antragsID);
+    });
   }
-
 }

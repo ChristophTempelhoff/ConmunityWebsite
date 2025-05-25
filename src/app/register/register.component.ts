@@ -172,14 +172,17 @@ export class RegisterComponent implements OnInit {
 
       // Daten an den API-Service senden
       this.dataService.create_antrag(antrag)
-        .pipe(first())
-        .subscribe(response => {
-          // Erfolgreiche Verarbeitung (z.B. Umleitung zur Erfolgsmeldung oder Login)
-          alert('Antrag erfolgreich erstellt!');
-          this.router.navigate(['/success']);
-        }, error => {
-          console.error('Fehler beim Erstellen des Antrags', error);
-        });
+  .pipe(first())
+  .subscribe(response => {
+    if (response.message === "Daten erfolgreich gespeichert." && response.Antragsnummer) {
+      const antragsID = response.Antragsnummer;
+      this.router.navigate(['/success'], { queryParams: { antragsID: antragsID } });
+    } else {
+      console.error("Fehlerhafte Antwort", response);
+    }
+  }, error => {
+    console.error('Fehler beim Erstellen des Antrags', error);
+  });
     } else {
       this.mitgliedForm.markAllAsTouched(); // Markiere alle Felder als berührt, um Validierungsfehler anzuzeigen
     }
