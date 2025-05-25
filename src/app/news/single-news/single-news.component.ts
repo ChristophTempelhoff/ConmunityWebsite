@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { News } from 'src/app/ClassesAndInterfaces/New';
 import { NewsService } from 'src/app/services/news.service';
@@ -10,11 +11,11 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class SingleNewsComponent {
 
-  news: News = { id: '', title: '', date: new Date(), desc: '', introduction: '', ImageUrl: '' };
+  news: News = { newsID: '', title: '', created: 'new Date()', description: '', introduction: '', img: '' };
 
   id: string = "";
 
-  newsService: NewsService = new NewsService();
+  newsService: NewsService = new NewsService(inject(HttpClient));
 
   isLoading: boolean = true; // Loading state
 
@@ -34,9 +35,10 @@ export class SingleNewsComponent {
 
   async loadNews() {
 
-    this.news = await this.newsService.getSingleNewsFromDB(this.id);
-
-    this.isLoading = false; // Set loading to false after loading
+    this.newsService.getSingleNewsFromDB(this.id).subscribe((singleNews) => {
+      this.news = singleNews;
+      this.isLoading = false;
+    });
 
   }
 

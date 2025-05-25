@@ -14,6 +14,8 @@ import { ZieleComponent } from './ziele/ziele.component';
 import { DownloadComponent } from './download/download.component';
 import { MitgliedsschaftComponent } from './mitgliedsschaft/mitgliedsschaft.component';
 import { SingleNewsComponent } from './news/single-news/single-news.component';
+import { RegisterComponent } from './register/register.component';
+import { SuccessComponent } from './success/success.component';
 
 const routes: Routes = [
   {
@@ -69,6 +71,14 @@ const routes: Routes = [
     path: 'mitgliedschaft',
     component: MitgliedsschaftComponent
   },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'success',
+    component: SuccessComponent
+  }, 
 
   //Must be last all the time!!!!
   {

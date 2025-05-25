@@ -1,0 +1,17 @@
+.btn{
+    background: #b988ea;
+    opacity: 80%;
+    color: rgba(255, 255, 255, 1);
+    border-color: #b988ea;
+    font-size: 20px;
+    font-weight: bolder;
+ }
+    .btn:hover{
+        color: white;
+        background: #b988ea;;
+        cursor: pointer;
+        opacity: 100%;
+        box-shadow: 0 0 0.75em 0.05em #b988ea;
+        text-shadow: 0 0 .9px white, 0 0 .9px white, 0 0 .9px white;
+        letter-spacing: 1px;
+    }
